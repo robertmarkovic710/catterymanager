@@ -3,19 +3,16 @@
   font-family: Arial, sans-serif;
 }
 
-/* forma */
 .form-container {
   margin-bottom: 20px;
 }
 
-/* inputi */
 input {
   margin-right: 10px;
   padding: 6px;
   margin-bottom: 10px;
 }
 
-/* button */
 button {
   padding: 6px 12px;
   cursor: pointer;
@@ -29,7 +26,6 @@ button:hover {
   background-color: #333;
 }
 
-/* kartica mačke */
 .cat-card {
   border: 1px solid gray;
   padding: 10px;
@@ -38,13 +34,11 @@ button:hover {
   background-color: #f9f9f9;
 }
 
-/* poruka kad nema mačaka */
 .empty-message {
   color: gray;
   font-style: italic;
 }
 
-/* header */
 .header {
   background-color: #333;
   color: white;
