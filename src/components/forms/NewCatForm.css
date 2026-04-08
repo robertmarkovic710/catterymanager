@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #f5efe6, #e8dccd);
+}
+
+.form-page {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-card {
+  background-color: #fffaf3;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-card h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #5a4633;
+}
+
+.form-card input,
+.form-card select {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #d6c6b8;
+  background-color: #fff;
+}
+
+.form-card input:focus,
+.form-card select:focus {
+  outline: none;
+  border-color: #b89b7a;
+}
+
+.gender-toggle {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.gender-toggle button {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #d6c6b8;
+  background-color: #f5efe6;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.gender-toggle .active {
+  background-color: #b89b7a;
+  color: white;
+  border: none;
+}
+
+.submit-btn {
+  padding: 12px;
+  background-color: #5a4633;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #3e2f23;
+}

@@ -1,0 +1,66 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.add-btn {
+  background-color: #5a4633;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.add-btn:hover {
+  background-color: #3e2f23;
+}
+
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.cat-card {
+  position: relative;
+  background-color: #fffaf3;
+  border: 1px solid #e0d5c5;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+.cat-card h3 {
+  margin-top: 0;
+  color: #5a4633;
+}
+
+.cat-card p {
+  margin: 5px 0;
+}
+
+.cat-card span {
+  font-weight: bold;
+}
+
+.card-actions {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 5px;
+}
+
+.icon-btn{
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.icon-btn.delete {
+  color: #b00020;
+  transform: scale(2);
+}

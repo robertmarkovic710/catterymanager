@@ -1,0 +1,28 @@
+.header {
+  background: linear-gradient(135deg, #e0cb53, #4d3a29);
+  padding: 20px 30px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.header-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.header-title {
+  text-decoration: none;
+  color: #fffaf3;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.header-title:hover {
+  opacity: 0.8;
+}
+
+.header p {
+  margin: 5px 0 0 0;
+  color: #f5efe6;
+  font-size: 14px;
+}
