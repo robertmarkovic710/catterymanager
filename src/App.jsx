@@ -1,13 +1,23 @@
-import "./App.css";
 import { useState, useEffect } from "react";
-import Header from "./components/Header";
-import CatForm from "./components/forms/NewCatForm";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 
-import { Routes, Route, useNavigate } from "react-router-dom";
+import Header from "./components/Header";
+import SideMenu from "./components/sidemenu/SideMenu";
+import CatForm from "./components/forms/NewCatForm";
+import Home from "./pages/Home";
+
+import "./App.css";
 
 function App() {
 
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   const [cats, setCats] = useState(() => {
     const saved = localStorage.getItem("cats");
@@ -26,17 +36,22 @@ function App() {
     setCats(cats.filter(cat => cat.id !== id));
   };
 
-  const editCat = (cat) => {
-    alert("Edit: " + cat.name);
-  };
-
   return (
     <div>
 
-      <Header title="Cattery Manager" />
+      <SideMenu isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
+
+      {location.pathname !== "/" && (
+        <Header toggleMenu={toggleMenu} />
+      )}
 
       <Routes>
+
         <Route path="/" element={
+          <Home toggleMenu={toggleMenu} />
+        } />
+
+        <Route path="/cats" element={
           <div className="container">
 
             <button className="add-btn" onClick={() => navigate("/add")}>
@@ -45,30 +60,33 @@ function App() {
 
             {cats.length === 0 ? (
               <p className="empty-message">
-                Klikna da gumb iznad i dodaj svoju prvu mačku! <br />
+                Nemaš još unesenih mačaka.
               </p>
             ) : (
               <div className="cat-grid">
                 {cats.map((cat) => (
                   <div key={cat.id} className="cat-card">
+
                     <div className="card-actions">
-                      <button onClick={() => editCat(cat)} className="icon-btn">
-                        ✏️
-                      </button>
-                      <button onClick={() => deleteCat(cat.id)} className="icon-btn delete">
+                      <button className="icon-btn">✏️</button>
+                      <button 
+                        className="icon-btn delete"
+                        onClick={() => deleteCat(cat.id)}
+                      >
                         🗑
                       </button>
                     </div>
 
                     <h3>{cat.name}</h3>
-
                     <p><span>Pasmina:</span> {cat.breed}</p>
                     <p><span>Godine:</span> {cat.age}</p>
                     <p><span>Spol:</span> {cat.gender}</p>
+
                   </div>
                 ))}
               </div>
             )}
+
           </div>
         } />
 
