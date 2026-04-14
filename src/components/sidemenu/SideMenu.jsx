@@ -14,8 +14,8 @@ function SideMenu({ isOpen, setIsOpen }) {
         <h2>Izbornik</h2>
 
         <Link to="/" onClick={closeMenu}>Početna</Link>
-        <Link to="/parovi" onClick={closeMenu}>Uzgojni parovi</Link>
-        <Link to="/legla" onClick={closeMenu}>Legla</Link>
+        <Link to="/cats" onClick={closeMenu}>Uzgojni parovi</Link>
+        <Link to="/litters" onClick={closeMenu}>Legla</Link>
 
       </div>
     </>

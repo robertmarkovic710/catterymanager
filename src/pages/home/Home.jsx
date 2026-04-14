@@ -1,5 +1,4 @@
-import "./css/Home.css";
-import { GrCentos } from "react-icons/gr";
+import "./Home.css";
 import { GrAppsRounded } from "react-icons/gr";
 
 function Home({ toggleMenu }) {

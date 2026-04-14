@@ -38,14 +38,14 @@ function CatForm({ addCat }) {
     };
 
     addCat(newCat);
-    navigate("/");
+    navigate("/cats");
   };
 
   return (
     <div className="form-page">
 
       <form className="form-card" onSubmit={handleSubmit}>
-        <h2>Dodaj novu mačku</h2>
+        <h2>Nova uzgojna mačka</h2>
 
         <input
           type="text"
