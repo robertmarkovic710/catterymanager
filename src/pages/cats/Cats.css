@@ -1,56 +1,50 @@
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.add-btn {
-  background-color: #091653;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-bottom: 20px;
-  font-size: 14px;
-  transition: 0.2s;
-}
-
-.add-btn:hover {
-  background-color: #8491c9;
+.cats-page {
+  min-height: 100vh;
+  padding: 80px 20px 40px 20px;
 }
 
 .cat-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 
 .cat-card {
   position: relative;
-  background-color: #fffaf3;
-  border: 1px solid #e0d5c5;
-  border-radius: 12px;
+
   padding: 20px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255,255,255,0.1);
+
+  color: #f5f5f5;
+
   transition: 0.2s;
 }
 
 .cat-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-5px);
+  background: rgba(189, 189, 189, 0.35);
 }
 
 .cat-card h3 {
   margin-top: 0;
-  color: #5a4633;
+  margin-bottom: 10px;
+  color: #274046;
 }
 
 .cat-card p {
   margin: 5px 0;
+  color: #274046;
 }
 
 .cat-card span {
   font-weight: bold;
+  color: #274046;
 }
 
 .card-actions {
@@ -58,24 +52,73 @@
   top: 10px;
   right: 10px;
   display: flex;
-  gap: 5px;
+  gap: 8px;
 }
 
 .icon-btn {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
+  color: white;
+  transition: 0.2s;
+}
+
+.icon-btn:hover {
+  transform: scale(1.2);
 }
 
 .icon-btn.delete {
-  color: #b00020;
-  transform: scale(1.3);
+  color: #ff6b6b;
 }
 
 .empty-message {
   text-align: center;
-  color: #091653;
+  color: rgba(255,255,255,0.8);
   margin-top: 40px;
   font-style: italic;
+}
+
+.add-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+
+  width: 65px;
+  height: 65px;
+
+  background-color: #274046;
+  color: white;
+
+  border: none;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 30px;
+  cursor: pointer;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  transition: 0.2s;
+
+  z-index: 1000;
+}
+
+.add-btn:hover {
+  transform: scale(1.1);
+  background-color: #1b2c2f;
+}
+
+@media (max-width: 600px) {
+  .cats-page {
+    padding: 100px 15px 30px 15px;
+  }
+
+  .add-btn {
+    width: 55px;
+    height: 55px;
+    font-size: 24px;
+  }
 }

@@ -8,7 +8,7 @@ function CatForm({ addCat }) {
   const [breed, setBreed] = useState("");
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({}); 
 
   const navigate = useNavigate();
 

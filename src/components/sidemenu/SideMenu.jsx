@@ -1,9 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import "./SideMenu.css";
 
 function SideMenu({ isOpen, setIsOpen }) {
-
+  const navigate = useNavigate();
   const closeMenu = () => setIsOpen(false);
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    closeMenu();
+    navigate("/login");
+  }
 
   return (
     <>
@@ -13,10 +19,15 @@ function SideMenu({ isOpen, setIsOpen }) {
 
         <h2>Izbornik</h2>
 
-        <Link to="/" onClick={closeMenu}>Početna</Link>
-        <Link to="/cats" onClick={closeMenu}>Uzgojni parovi</Link>
-        <Link to="/litters" onClick={closeMenu}>Legla</Link>
+        <div className="menu-links">
+          <Link to="/home" onClick={closeMenu} className={location.pathname === "/home" ? "active" : ""}>Početna</Link>
+          <Link to="/cats" onClick={closeMenu} className={location.pathname === "/cats" ? "active" : ""} >Naše mačke</Link>
+          <Link to="/litters" onClick={closeMenu} className={location.pathname === "/litters" ? "active" : ""}>Mališani</Link>
+        </div>
 
+        <button className="logout-btn" onClick={handleLogout}>
+          Odjava
+        </button>
       </div>
     </>
   );

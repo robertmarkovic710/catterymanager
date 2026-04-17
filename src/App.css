@@ -64,3 +64,13 @@
   color: #b00020;
   transform: scale(2);
 }
+
+.global-menu-icon {
+  position: fixed;   /* 🔥 BITNO */
+  top: 20px;
+  left: 20px;
+  font-size: 26px;
+  cursor: pointer;
+  color: #5a4633;
+  z-index: 1000;     /* da bude iznad svega */
+}
