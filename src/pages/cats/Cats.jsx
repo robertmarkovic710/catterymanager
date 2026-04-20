@@ -29,7 +29,7 @@ function Cats({ cats, deleteCat }) {
 
       <button
           className="add-btn"
-          onClick={() => navigate("/add")}
+          onClick={() => navigate("/addCat")}
           title="Dodaj mačku"
         >
         <MdAdd />
