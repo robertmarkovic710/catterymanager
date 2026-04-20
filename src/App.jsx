@@ -34,6 +34,20 @@ function App() {
     setCats(cats.filter(cat => cat.id !== id));
   };
 
+  const addLitter = (newLitter) => {
+    setCats(prev =>
+      prev.map((cat, index) => {
+        if (index === 0) {
+          return {
+            ...cat,
+            litters: [...(cat.litters || []), newLitter]
+          };
+        }
+        return cat;
+      })
+    );
+  };
+
   return (
 
     <div>
@@ -45,7 +59,7 @@ function App() {
       </div>
     )}
       
-      <AppRouter cats={cats} addCat={addCat} deleteCat={deleteCat} toggleMenu={toggleMenu} />
+      <AppRouter cats={cats} setCats={setCats} addCat={addCat} deleteCat={deleteCat} addLitter={addLitter} toggleMenu={toggleMenu} />
 
     </div>
   );

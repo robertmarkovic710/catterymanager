@@ -3,10 +3,12 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "../../pages/login/Login";
 import Home from "../../pages/home/Home";
 import Cats from "../../pages/cats/Cats";
-import CatForm from "../forms/NewCatForm";
+import CatForm from "../forms/NewCatForm/NewCatForm";
+import CatDetails from "../../pages/catDetails/CatDetails";
 import Litters from "../../pages/litters/Litters";
+import NewLitterForm from "../forms/newLitterForm/NewLitterForm";
 
-function AppRouter({ cats, addCat, deleteCat, toggleMenu }) {
+function AppRouter({ cats, setCats, addCat, deleteCat, addLitter, toggleMenu }) {
 
   const user = localStorage.getItem("user");
 
@@ -40,8 +42,18 @@ function AppRouter({ cats, addCat, deleteCat, toggleMenu }) {
       <Route
         path="/litters"
         element={
-          user ? <Litters /> : <Navigate to="/login" />
+          user ? <Litters cats={cats} /> : <Navigate to="/login" />
         }
+      />
+      <Route
+        path="/addLitter"
+        element={
+          user ? <NewLitterForm addLitter={addLitter} /> : <Navigate to="/login" />
+        }
+      />
+      <Route
+        path="/cat/:id"
+        element={<CatDetails cats={cats} setCats={setCats} />}
       />
       <Route
         path="*"

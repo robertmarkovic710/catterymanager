@@ -1,0 +1,73 @@
+.litter-form {
+  margin-top: 20px;
+
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(10px);
+
+  padding: 20px;
+  border-radius: 12px;
+
+  display: flex;
+  flex-direction: column;
+
+  color: white;
+  max-width: 500px;
+  width: 100%;
+}
+
+/* TITLE */
+.litter-form h2 {
+  margin-bottom: 20px;
+}
+
+/* FORM GROUP */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  margin-bottom: 16px;
+}
+
+/* LABEL */
+.form-group label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: rgba(255,255,255,0.7);
+}
+
+/* INPUTI */
+.litter-form input,
+.litter-form select,
+.litter-form textarea {
+  width: 100%;
+  padding: 12px;
+
+  border-radius: 8px;
+  border: none;
+
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+/* TEXTAREA */
+.litter-form textarea {
+  min-height: 90px;
+  resize: none;
+}
+
+/* PLACEHOLDER */
+.litter-form input::placeholder,
+.litter-form textarea::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+/* DROPDOWN FIX */
+.litter-form select {
+  color: black;
+}
+
+.litter-form option {
+  color: black;
+}

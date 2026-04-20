@@ -1,0 +1,62 @@
+import { BsSignDeadEndFill } from "react-icons/bs";
+
+function EditCatForm({ form, setForm }) {
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  return (
+    <div className="edit-form">
+
+      <h2>Podatci o mački</h2>
+
+      <div className="form-group">
+        <label>Ime</label>
+        <input
+          name="name"
+          value={form.name}
+          onChange={handleChange}
+        />
+      </div>
+
+      <div className="form-group">
+        <label>Pasmina</label>
+        <input
+          name="breed"
+          value={form.breed}
+          onChange={handleChange}
+        />
+      </div>
+
+      <div className="form-group">
+        <label>Starost</label>
+        <input
+          type="number"
+          name="age"
+          value={form.age}
+          onChange={handleChange}
+        />
+      </div>
+
+      <div className="form-group">
+      <label>Spol</label>
+      <select
+        name="gender"
+        value={form.gender}
+        onChange={handleChange}
+      >
+        <option value="">Odaberi spol</option>
+        <option value="Ženka">Ženka</option>
+        <option value="Mužjak">Mužjak</option>
+      </select>
+    </div>
+
+    </div>
+  );
+}
+
+export default EditCatForm

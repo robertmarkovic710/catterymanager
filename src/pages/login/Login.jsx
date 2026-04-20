@@ -42,25 +42,25 @@ function Login({ toggleMenu }) {
           Informacijski sustav za uzgoj mačaka
         </h1>
 
-        <form className="form-card" onSubmit={loginUser}>
+        <form className="form-card-login" onSubmit={loginUser}>
 
           <h2>Prijavi se</h2>
 
           <input
             type="text"
-            placeholder="Unesite korisničko ime"
+            placeholder="Unesite korisničko ime (admin)"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
 
           <input
             type="password"
-            placeholder="Unesite lozinku"
+            placeholder="Unesite lozinku (admin)"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <button type="submit" className="submit-btn">
+          <button type="submit" className="submit-btn1">
             Prijavi se
           </button>
 
