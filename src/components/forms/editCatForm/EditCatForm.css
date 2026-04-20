@@ -11,12 +11,10 @@
   color: white;
 }
 
-/* TITLE */
 .edit-form h2 {
   margin-bottom: 20px;
 }
 
-/* FORM GROUP (KLJUČNO ZA SPACING) */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -25,7 +23,6 @@
   margin-bottom: 16px;
 }
 
-/* LABEL */
 .form-group label {
   font-size: 13px;
   text-transform: uppercase;
@@ -33,7 +30,6 @@
   color: rgba(255,255,255,0.7);
 }
 
-/* INPUTI */
 .edit-form input,
 .edit-form select {
   width: 100%;
@@ -46,16 +42,56 @@
   color: white;
 }
 
-/* PLACEHOLDER */
 .edit-form input::placeholder {
   color: rgba(255,255,255,0.6);
 }
 
-/* DROPDOWN FIX */
 .edit-form select {
   color: black;
 }
 
 .edit-form option {
   color: black;
+}
+
+@media (max-width: 768px) {
+  .edit-form {
+    padding: 16px;
+    border-radius: 0;
+  }
+
+  .edit-form h2 {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .form-group {
+    margin-bottom: 14px;
+  }
+
+  .form-group label {
+    font-size: 12px;
+  }
+
+  .edit-form input,
+  .edit-form select {
+    padding: 14px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .edit-form {
+    padding: 12px;
+  }
+
+  .edit-form h2 {
+    font-size: 18px;
+  }
+
+  .edit-form input,
+  .edit-form select {
+    padding: 12px;
+    font-size: 15px;
+  }
 }

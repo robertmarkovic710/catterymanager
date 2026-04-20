@@ -97,3 +97,60 @@
 .submit-btn:hover {
   background: #0e3192;
 }
+
+@media (max-width: 768px) {
+  .form-page {
+    padding: 10px;
+    align-items: flex-start;
+  }
+
+  .form-card {
+    max-width: 100%;
+    padding: 18px;
+    border-radius: 10px;
+  }
+
+  .form-card h2 {
+    font-size: 20px;
+  }
+
+  .form-card input,
+  .form-card select {
+    padding: 14px;
+    font-size: 16px;
+  }
+
+  .gender-toggle button {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .submit-btn {
+    padding: 14px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-card {
+    padding: 14px;
+  }
+
+  .form-card h2 {
+    font-size: 18px;
+  }
+
+  .form-card input,
+  .form-card select {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .gender-toggle {
+    flex-direction: column;
+  }
+
+  .gender-toggle button {
+    width: 100%;
+  }
+}

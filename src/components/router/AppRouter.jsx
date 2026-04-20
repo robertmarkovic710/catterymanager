@@ -34,7 +34,7 @@ function AppRouter({ cats, setCats, addCat, deleteCat, addLitter, toggleMenu }) 
         }
       />
       <Route
-        path="/add"
+        path="/addCat"
         element={
           user ? <CatForm addCat={addCat} /> : <Navigate to="/login" />
         }

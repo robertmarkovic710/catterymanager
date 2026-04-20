@@ -21,12 +21,12 @@ function Home({ toggleMenu }) {
                         <p>Pregled svih mačaka</p>
                     </div>
 
-                    <div className="card" onClick={() => navigate("/add")}>
+                    <div className="card" onClick={() => navigate("/addCat")}>
                         <h3>Dodaj mačku</h3>
                         <p>Unesi novu uzgojnu mačku</p>
                     </div>
 
-                    <div className="card">
+                    <div className="card" onClick={() => navigate("/litters")}>
                         <h3>Legla</h3>
                         <p>Uskoro dostupno</p>
                     </div>

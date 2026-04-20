@@ -1,4 +1,3 @@
-/* PAGE */
 .details-page {
   display: flex;
   flex-direction: column;
@@ -10,7 +9,6 @@
   align-items: center;
 }
 
-/* MAIN FORM */
 .main-form {
   width: 100%;
   max-width: 700px;
@@ -22,7 +20,6 @@
   border-radius: 12px;
 }
 
-/* BUTTON */
 .primary-btn {
   background: #274046;
   color: white;
@@ -37,7 +34,6 @@
   background: #1b2c2f;
 }
 
-/* SAVE BUTTON */
 .save-btn {
   margin-top: 20px;
 
@@ -61,14 +57,12 @@
   background: #1b2c2f;
 }
 
-/* FORM GROUP */
 .form-group {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-/* LABEL */
 .form-group label {
   font-size: 13px;
   text-transform: uppercase;
@@ -76,7 +70,6 @@
   color: rgba(255,255,255,0.7);
 }
 
-/* INPUTS */
 .edit-form input,
 .edit-form select {
   padding: 10px;
@@ -87,7 +80,6 @@
   color: white;
 }
 
-/* DROPDOWN FIX */
 .edit-form select {
   color: black;
 }
@@ -96,7 +88,6 @@
   color: black;
 }
 
-/* MOBILE */
 @media (max-width: 900px) {
   .details-page {
     padding: 100px 20px 40px 20px;

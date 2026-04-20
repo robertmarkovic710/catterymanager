@@ -15,12 +15,10 @@
   width: 100%;
 }
 
-/* TITLE */
 .litter-form h2 {
   margin-bottom: 20px;
 }
 
-/* FORM GROUP */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -29,7 +27,6 @@
   margin-bottom: 16px;
 }
 
-/* LABEL */
 .form-group label {
   font-size: 13px;
   text-transform: uppercase;
@@ -37,7 +34,6 @@
   color: rgba(255,255,255,0.7);
 }
 
-/* INPUTI */
 .litter-form input,
 .litter-form select,
 .litter-form textarea {
@@ -51,23 +47,73 @@
   color: white;
 }
 
-/* TEXTAREA */
 .litter-form textarea {
   min-height: 90px;
   resize: none;
 }
 
-/* PLACEHOLDER */
 .litter-form input::placeholder,
 .litter-form textarea::placeholder {
   color: rgba(255,255,255,0.6);
 }
 
-/* DROPDOWN FIX */
 .litter-form select {
   color: black;
 }
 
 .litter-form option {
   color: black;
+}
+
+@media (max-width: 768px) {
+  .litter-form {
+    padding: 16px;
+    border-radius: 0;
+    margin-top: 10px;
+  }
+
+  .litter-form h2 {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .form-group {
+    margin-bottom: 14px;
+  }
+
+  .form-group label {
+    font-size: 12px;
+  }
+
+  .litter-form input,
+  .litter-form select,
+  .litter-form textarea {
+    padding: 14px;
+    font-size: 16px;
+  }
+
+  .litter-form textarea {
+    min-height: 110px;
+  }
+}
+
+@media (max-width: 480px) {
+  .litter-form {
+    padding: 12px;
+  }
+
+  .litter-form h2 {
+    font-size: 18px;
+  }
+
+  .litter-form input,
+  .litter-form select,
+  .litter-form textarea {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .litter-form textarea {
+    min-height: 100px;
+  }
 }
