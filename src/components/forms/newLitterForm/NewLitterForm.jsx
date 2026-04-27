@@ -1,8 +1,9 @@
 import "./NewLitterForm.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import BackButton from "../../backButton/BackButton";
 
-function NewLitterForm({ addLitter }) {
+function NewLitterForm({ addLitter, cats }) {
 
   const navigate = useNavigate();
 
@@ -11,7 +12,8 @@ function NewLitterForm({ addLitter }) {
     end: "",
     type: "",
     kittens: "",
-    notes: ""
+    notes: "",
+    motherId: ""
   });
 
   const handleChange = (e) => {
@@ -24,10 +26,14 @@ function NewLitterForm({ addLitter }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!form.start || !form.type || !form.kittens) {
+    if (!form.motherId || !form.start || !form.type || !form.kittens) {
       alert("Popuni obavezna polja");
       return;
     }
+
+    const selectedCat = cats.find(
+      c => c.id === Number(form.motherId)
+    );
 
     const newLitter = {
       id: Date.now(),
@@ -35,16 +41,20 @@ function NewLitterForm({ addLitter }) {
       end: form.end,
       type: form.type,
       kittens: form.kittens,
-      notes: form.notes
+      notes: form.notes,
+      motherId: form.motherId,
+      motherName: selectedCat.name
     };
 
-    addLitter(newLitter);
+    addLitter(newLitter, form.motherId);
 
     navigate("/litters");
   };
 
   return (
     <div className="litters-page">
+
+      <BackButton title="Povratak" />
 
       <form className="litter-form" onSubmit={handleSubmit}>
 
@@ -58,6 +68,25 @@ function NewLitterForm({ addLitter }) {
             value={form.start}
             onChange={handleChange}
           />
+        </div>
+
+        <div className="form-group">
+          <label>Majka</label>
+          <select
+            name="motherId"
+            value={form.motherId}
+            onChange={handleChange}
+          >
+            <option value="">Odaberi ženku</option>
+
+            {cats
+              .filter(cat => cat.gender === "Ženka")
+              .map(cat => (
+                <option key={cat.id} value={cat.id}>
+                  {cat.name}
+                </option>
+              ))}
+          </select>
         </div>
 
         <div className="form-group">

@@ -3,7 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "../../pages/login/Login";
 import Home from "../../pages/home/Home";
 import Cats from "../../pages/cats/Cats";
-import CatForm from "../forms/NewCatForm/NewCatForm";
+import CatForm from "../forms/newCatForm/NewCatForm";
 import CatDetails from "../../pages/catDetails/CatDetails";
 import Litters from "../../pages/litters/Litters";
 import NewLitterForm from "../forms/newLitterForm/NewLitterForm";
@@ -48,7 +48,7 @@ function AppRouter({ cats, setCats, addCat, deleteCat, addLitter, toggleMenu }) 
       <Route
         path="/addLitter"
         element={
-          user ? <NewLitterForm addLitter={addLitter} /> : <Navigate to="/login" />
+          user ? <NewLitterForm addLitter={addLitter} cats={cats}  /> : <Navigate to="/login" />
         }
       />
       <Route

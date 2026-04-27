@@ -1,7 +1,8 @@
-import { useParams, useNavigate  } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import EditCatForm from "../../components/forms/editCatForm/EditCatForm";
 import "./CatDetails.css";
+import FormActions from "../../components/formActionButtons/FormActionButtons";
 
 function CatDetails({ cats, setCats }) {
 
@@ -11,7 +12,7 @@ function CatDetails({ cats, setCats }) {
 
     if (!cat) return <p>Mačka nije pronađena</p>;
 
-    const [form, setForm] = useState({...cat, litters: cat.litters || []});
+    const [form, setForm] = useState({ ...cat, litters: cat.litters || [] });
 
     const handleSave = () => {
         const updated = cats.map(c =>
@@ -27,15 +28,16 @@ function CatDetails({ cats, setCats }) {
             <div className="main-form">
 
                 <EditCatForm form={form} setForm={setForm} />
-            
-                <button className="save-btn" onClick={handleSave}>
-                    Spremi
-                </button>
+
+                <FormActions
+                    onSave={handleSave}
+                    saveText="Ažuriraj podatke"
+                />
 
             </div>
 
         </div>
-  );
+    );
 }
 
 export default CatDetails;

@@ -8,7 +8,7 @@ import AppRouter from "./components/router/AppRouter";
 import "./App.css";
 
 function App() {
-  
+
   const location = useLocation();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,10 +34,10 @@ function App() {
     setCats(cats.filter(cat => cat.id !== id));
   };
 
-  const addLitter = (newLitter) => {
+  const addLitter = (newLitter, motherId) => {
     setCats(prev =>
-      prev.map((cat, index) => {
-        if (index === 0) {
+      prev.map(cat => {
+        if (cat.id === Number(motherId)) {
           return {
             ...cat,
             litters: [...(cat.litters || []), newLitter]
@@ -53,12 +53,12 @@ function App() {
     <div>
       <SideMenu isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
 
-      {location.pathname !== "/login" && (
-      <div className="global-menu-icon" onClick={toggleMenu}>
-        <GrAppsRounded />
-      </div>
-    )}
-      
+      {!["/login", "/addCat", "/addLitter"].includes(location.pathname) && (
+        <div className="global-menu-icon" onClick={toggleMenu}>
+          <GrAppsRounded />
+        </div>
+      )}
+
       <AppRouter cats={cats} setCats={setCats} addCat={addCat} deleteCat={deleteCat} addLitter={addLitter} toggleMenu={toggleMenu} />
 
     </div>

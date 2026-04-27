@@ -28,7 +28,7 @@ function Home({ toggleMenu }) {
 
                     <div className="card" onClick={() => navigate("/litters")}>
                         <h3>Legla</h3>
-                        <p>Uskoro dostupno</p>
+                        <p>Pregled svih legla</p>
                     </div>
                 </div>
 

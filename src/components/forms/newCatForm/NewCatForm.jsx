@@ -1,6 +1,7 @@
 import "./NewCatForm.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import BackButton from "../../backButton/BackButton";
 
 function CatForm({ addCat }) {
 
@@ -8,7 +9,7 @@ function CatForm({ addCat }) {
   const [breed, setBreed] = useState("");
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
-  const [errors, setErrors] = useState({}); 
+  const [errors, setErrors] = useState({});
 
   const navigate = useNavigate();
 
@@ -34,7 +35,7 @@ function CatForm({ addCat }) {
       name,
       breed,
       age,
-      gender
+      gender 
     };
 
     addCat(newCat);
@@ -43,6 +44,8 @@ function CatForm({ addCat }) {
 
   return (
     <div className="form-page">
+
+      <BackButton title="Povratak" />
 
       <form className="form-card" onSubmit={handleSubmit}>
         <h2>Nova uzgojna mačka</h2>
