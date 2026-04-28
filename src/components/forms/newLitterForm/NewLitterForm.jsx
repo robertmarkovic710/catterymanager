@@ -71,7 +71,7 @@ function NewLitterForm({ addLitter, cats }) {
         </div>
 
         <div className="form-group">
-          <label>Majka</label>
+          <label>Mama</label>
           <select
             name="motherId"
             value={form.motherId}

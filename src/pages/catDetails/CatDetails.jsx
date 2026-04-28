@@ -2,7 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import EditCatForm from "../../components/forms/editCatForm/EditCatForm";
 import "./CatDetails.css";
-import FormActions from "../../components/formActionButtons/FormActionButtons";
+import FormActionButtons from "../../components/formActionButtons/FormActionButtons";
 
 function CatDetails({ cats, setCats }) {
 
@@ -22,6 +22,23 @@ function CatDetails({ cats, setCats }) {
         navigate("/cats");
     };
 
+    const handleDelete = () => {
+        if (form.litters && form.litters.length > 0) {
+            const confirmDelete = window.confirm(
+                "Ova mačka ima legla. Brisanjem ćeš obrisati i sva legla. Nastaviti?"
+            );
+            if (!confirmDelete) return;
+        } else {
+            const confirmDelete = window.confirm("Jesi siguran da želiš obrisati mačku?");
+            if (!confirmDelete) return;
+        }
+
+        const updated = cats.filter(c => c.id !== cat.id);
+
+        setCats(updated);
+        navigate("/cats");
+    };
+
     return (
         <div className="details-page">
 
@@ -29,9 +46,11 @@ function CatDetails({ cats, setCats }) {
 
                 <EditCatForm form={form} setForm={setForm} />
 
-                <FormActions
+                <FormActionButtons
                     onSave={handleSave}
-                    saveText="Ažuriraj podatke"
+                    saveText="Spremi izmjene"
+                    onDelete={handleDelete}
+                    showDelete={true}
                 />
 
             </div>

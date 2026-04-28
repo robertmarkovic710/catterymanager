@@ -9,14 +9,10 @@ function Litters({ cats }) {
 
   const allLitters = cats.flatMap(cat =>
     (cat.litters || []).map(l => ({
-      ...l,
+      ...l, 
       mother: cat.name
     }))
   );
-
-  const addLitter = (newLitter) => {
-    setShowForm(false);
-  };
 
   return (
     <div className="litters-page">
@@ -29,12 +25,20 @@ function Litters({ cats }) {
         <div className="litters-list">
 
           {allLitters.map(litter => (
-            <div key={litter.id} className="litter-card">
+            <div key={litter.id} className="litter-card" onClick={() => navigate(`/litter/${litter.id}`)}>
 
               <div className="litter-left">
-                <h3>{litter.mother}</h3>
+                <h3>Mama: {litter.mother}</h3>
                 <p><span>Početak:</span> {litter.start}</p>
                 <p><span>Mačići:</span> {litter.kittens}</p>
+                <p>
+                  <span>Komplikacije:</span>{" "}
+                  {litter.notes
+                    ? litter.notes.length > 30
+                      ? litter.notes.substring(0, 30) + "..."
+                      : litter.notes
+                    : "Nema"}
+                </p>
               </div>
 
               <div className="litter-right">

@@ -1,7 +1,15 @@
 import "./FormActionButtons.css";
 import { useNavigate } from "react-router-dom";
 
-function FormActions({ onSave, saveText = "Spremi", showCancel = true }) {
+export default function FormActionButtons({
+    onSave,
+    saveText = "Spremi",
+    showCancel = true,
+    onDelete,
+    deleteText = "Obriši",
+    showDelete = false
+}) {
+
     const navigate = useNavigate();
 
     return (
@@ -20,8 +28,12 @@ function FormActions({ onSave, saveText = "Spremi", showCancel = true }) {
                 </button>
             )}
 
+            {showDelete && (
+                <button className="delete-btn" onClick={onDelete}>
+                    {deleteText}
+                </button>
+            )}
+
         </div>
     );
 }
-
-export default FormActions;

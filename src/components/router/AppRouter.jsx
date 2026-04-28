@@ -7,6 +7,7 @@ import CatForm from "../forms/newCatForm/NewCatForm";
 import CatDetails from "../../pages/catDetails/CatDetails";
 import Litters from "../../pages/litters/Litters";
 import NewLitterForm from "../forms/newLitterForm/NewLitterForm";
+import LitterDetails from "../../pages/litterDetails/LitterDetails";
 
 function AppRouter({ cats, setCats, addCat, deleteCat, addLitter, toggleMenu }) {
 
@@ -54,6 +55,10 @@ function AppRouter({ cats, setCats, addCat, deleteCat, addLitter, toggleMenu }) 
       <Route
         path="/cat/:id"
         element={<CatDetails cats={cats} setCats={setCats} />}
+      />
+      <Route
+        path="/litter/:id"
+        element={<LitterDetails cats={cats} setCats={setCats} />}
       />
       <Route
         path="*"

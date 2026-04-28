@@ -1,0 +1,98 @@
+.details-page {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    padding: 110px 70px;
+    min-height: 100vh;
+
+    align-items: center;
+}
+
+.main-form {
+    width: 100%;
+    max-width: 700px;
+
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.main-form h2 {
+    margin-bottom: 10px;
+}
+
+/* form */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 13px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.main-form input,
+.main-form select,
+.main-form textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.main-form textarea {
+    min-height: 100px;
+    resize: none;
+}
+
+.main-form select {
+    color: black;
+}
+
+.main-form option {
+    color: black;
+}
+
+/* DELETE BUTTON */
+.delete-btn {
+    margin-top: 10px;
+
+    width: 100%;
+    padding: 12px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #8b0000;
+    color: white;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.delete-btn:hover {
+    background: #5f0000;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+    .details-page {
+        padding: 90px 15px 30px 15px;
+    }
+
+    .main-form {
+        padding: 16px;
+        border-radius: 0;
+    }
+}
