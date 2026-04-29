@@ -21,32 +21,46 @@ function LitterDetails({ cats, setCats }) {
 
     if (!foundLitter) return <p>Leglo nije pronađeno</p>;
 
-    const mother = cats.find(cat => cat.id === motherId);
-
     const [form, setForm] = useState({
         ...foundLitter,
         motherId: motherId
     });
 
     const handleChange = (e) => {
+        const { name, value } = e.target;
+
         setForm({
             ...form,
-            [e.target.name]: e.target.value
+            [name]: name === "motherId" ? Number(value) : value
         });
     };
 
     const handleSave = () => {
 
+        const newMotherId = Number(form.motherId);
+
         const updatedCats = cats.map(cat => {
 
-            if (cat.id === motherId) {
+            // same cat mother, just update
+            if (cat.id === motherId && motherId === newMotherId) {
                 return {
                     ...cat,
-                    litters: cat.litters.filter(l => l.id !== form.id)
+                    litters: (cat.litters || []).map(l =>
+                        l.id === form.id ? form : l
+                    )
                 };
             }
 
-            if (cat.id === Number(form.motherId)) {
+            // remove litter from wrong cat mother
+            if (cat.id === motherId) {
+                return {
+                    ...cat,
+                    litters: (cat.litters || []).filter(l => l.id !== form.id)
+                };
+            }
+
+            // add litter to right cat mother
+            if (cat.id === newMotherId) {
                 return {
                     ...cat,
                     litters: [...(cat.litters || []), form]
@@ -68,7 +82,7 @@ function LitterDetails({ cats, setCats }) {
             if (cat.id === motherId) {
                 return {
                     ...cat,
-                    litters: cat.litters.filter(l => l.id !== form.id)
+                    litters: (cat.litters || []).filter(l => l.id !== form.id)
                 };
             }
             return cat;
@@ -82,7 +96,7 @@ function LitterDetails({ cats, setCats }) {
         <div className="details-page">
 
             <div className="main-form">
- 
+
                 <h2>Podatci o leglu</h2>
 
                 <div className="form-group">

@@ -14,6 +14,33 @@ function Litters({ cats }) {
     }))
   );
 
+  const formatDate = (dateString) => {
+    if (!dateString) return "";
+
+    const date = new Date(dateString);
+
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
+
+    return `${day}.${month}.${year}`;
+  };
+
+  const formatDateTime = (dateString) => {
+    if (!dateString) return "";
+
+    const date = new Date(dateString);
+
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
+
+    const hours = String(date.getHours()).padStart(2, "0");
+    const minutes = String(date.getMinutes()).padStart(2, "0");
+
+    return `${day}.${month}.${year} ${hours}:${minutes}`;
+  };
+
   return (
     <div className="litters-page">
 
@@ -29,8 +56,8 @@ function Litters({ cats }) {
 
               <div className="litter-left">
                 <h3>Mama: {litter.mother}</h3>
-                <p><span>Početak:</span> {litter.start}</p>
-                <p><span>Mačići:</span> {litter.kittens}</p>
+                <p><span>Početak:</span> {formatDateTime(litter.start)}</p>
+                <p><span>Mačića:</span> {litter.kittens}</p>
                 <p>
                   <span>Komplikacije:</span>{" "}
                   {litter.notes

@@ -25,11 +25,20 @@ function EditCatForm({ form, setForm }) {
 
       <div className="form-group">
         <label>Pasmina</label>
-        <input
+        <select
           name="breed"
           value={form.breed}
           onChange={handleChange}
-        />
+        >
+          <option value="">Odaberi pasminu</option>
+          <option value="Ragdoll">Ragdoll</option>
+          <option value="Britanska kratkodlaka">Britanska kratkodlaka</option>
+          <option value="Maine Coon">Maine Coon</option>
+          <option value="Sijamska">Sijamska</option>
+          <option value="Perzijska">Perzijska</option>
+          <option value="Bengalska">Bengalska</option>
+          <option value="Sfinks">Sfinks</option>
+        </select>
       </div>
 
       <div className="form-group">
