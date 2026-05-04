@@ -2,17 +2,27 @@ import "./Litters.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import NewLitterForm from "../../components/forms/newLitterForm/NewLitterForm";
-import { MdAdd, MdDelete, MdEdit } from "react-icons/md";
+import { MdAdd, MdDelete, MdEdit, MdSort } from "react-icons/md";
 
 function Litters({ cats }) {
   const navigate = useNavigate();
+  const [sortOrder, setSortOrder] = useState("desc");
 
   const allLitters = cats.flatMap(cat =>
     (cat.litters || []).map(l => ({
-      ...l, 
+      ...l,
       mother: cat.name
     }))
   );
+
+  const sortedLitters = [...allLitters].sort((a, b) => {
+    const dateA = new Date(a.start);
+    const dateB = new Date(b.start);
+
+    return sortOrder === "desc"
+      ? dateB - dateA
+      : dateA - dateB;
+  });
 
   const formatDate = (dateString) => {
     if (!dateString) return "";
@@ -44,14 +54,24 @@ function Litters({ cats }) {
   return (
     <div className="litters-page">
 
-      <h1 className="litters-title">Legla</h1>
+      <div className="litters-header">
+        <h1 className="litters-title">Legla</h1>
+
+        <MdSort
+          className={`sort-icon ${sortOrder === "asc" ? "asc" : ""}`}
+          onClick={() =>
+            setSortOrder(prev => prev === "desc" ? "asc" : "desc")
+          }
+          title="Sortiraj"
+        />
+      </div>
 
       {allLitters.length === 0 ? (
         <p className="empty">Nema unesenih legla.</p>
       ) : (
         <div className="litters-list">
 
-          {allLitters.map(litter => (
+          {sortedLitters.map(litter => (
             <div key={litter.id} className="litter-card" onClick={() => navigate(`/litter/${litter.id}`)}>
 
               <div className="litter-left">
@@ -79,10 +99,10 @@ function Litters({ cats }) {
       )}
 
       <button
-          className="add-btn"
-          onClick={() => navigate("/addLitter")}
-          title="Dodaj mačku"
-        >
+        className="add-btn"
+        onClick={() => navigate("/addLitter")}
+        title="Dodaj mačku"
+      >
         <MdAdd />
       </button>
     </div>
