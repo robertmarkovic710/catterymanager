@@ -18,6 +18,10 @@ function App() {
     return saved ? JSON.parse(saved) : [];
   });
 
+  const [maleCats, setMaleCats] = useState([]);
+  const [femaleCats, setFemaleCats] = useState([]);
+  const [litters, setLitters] = useState([]);
+
   useEffect(() => {
     localStorage.setItem("cats", JSON.stringify(cats));
   }, [cats]);
@@ -34,18 +38,8 @@ function App() {
     setCats(cats.filter(cat => cat.id !== id));
   };
 
-  const addLitter = (newLitter, motherId) => {
-    setCats(prev =>
-      prev.map(cat => {
-        if (cat.id === Number(motherId)) {
-          return {
-            ...cat,
-            litters: [...(cat.litters || []), newLitter]
-          };
-        }
-        return cat;
-      })
-    );
+  const addLitter = (newLitter) => {
+    setLitters(prev => [...prev, newLitter]);
   };
 
   return (
@@ -59,7 +53,7 @@ function App() {
         </div>
       )}
 
-      <AppRouter cats={cats} setCats={setCats} addCat={addCat} deleteCat={deleteCat} addLitter={addLitter} toggleMenu={toggleMenu} />
+      <AppRouter cats={cats} litters={litters} maleCats={maleCats} femaleCats={femaleCats} setCats={setCats} addCat={addCat} deleteCat={deleteCat} addLitter={addLitter} toggleMenu={toggleMenu} />
 
     </div>
   );

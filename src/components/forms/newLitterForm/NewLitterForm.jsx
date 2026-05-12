@@ -55,7 +55,7 @@ function NewLitterForm({ addLitter, cats }) {
       fatherName: selectedFather.name
     };
 
-    addLitter(newLitter, form.motherId);
+    addLitter(newLitter);
 
     navigate("/litters");
   };

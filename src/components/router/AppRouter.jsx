@@ -9,7 +9,7 @@ import Litters from "../../pages/litters/Litters";
 import NewLitterForm from "../forms/newLitterForm/NewLitterForm";
 import LitterDetails from "../../pages/litterDetails/LitterDetails";
 
-function AppRouter({ cats, setCats, addCat, deleteCat, addLitter, toggleMenu }) {
+function AppRouter({ cats, litters, maleCats, femaleCats, setCats, addCat, deleteCat, addLitter, toggleMenu }) {
 
   const user = localStorage.getItem("user");
 
@@ -43,7 +43,7 @@ function AppRouter({ cats, setCats, addCat, deleteCat, addLitter, toggleMenu }) 
       <Route
         path="/litters"
         element={
-          user ? <Litters cats={cats} /> : <Navigate to="/login" />
+          user ? <Litters maleCats={maleCats} femaleCats={femaleCats} litters={litters} /> : <Navigate to="/login" />
         }
       />
       <Route
