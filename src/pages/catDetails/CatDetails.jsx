@@ -22,6 +22,25 @@ function CatDetails({ cats, setCats }) {
         navigate("/cats");
     };
 
+    const partners = [];
+
+    cats.forEach(c => {
+        (c.litters || []).forEach(litter => {
+
+            // ako je trenutna mačka mama
+            if (litter.motherId === cat.id) {
+                partners.push(litter.fatherName);
+            }
+
+            // ako je trenutna mačka tata
+            if (litter.fatherId === cat.id) {
+                partners.push(litter.motherName);
+            }
+        });
+    });
+
+    const uniquePartners = [...new Set(partners)];
+
     const handleDelete = () => {
         if (form.litters && form.litters.length > 0) {
             const confirmDelete = window.confirm(
@@ -55,6 +74,26 @@ function CatDetails({ cats, setCats }) {
 
             </div>
 
+            <div className="partner-box">
+
+                <h3>
+                    {cat.gender === "Mužjak"
+                        ? "Partnerice"
+                        : "Partneri"}
+                </h3>
+
+                {uniquePartners.length === 0 ? (
+                    <p>Nema partnera.</p>
+                ) : (
+                    <ul>
+                        {uniquePartners.map((partner, index) => (
+                            <li key={index}>{partner}</li>
+                        ))}
+                    </ul>
+                )}
+
+            </div>
+            
         </div>
     );
 }

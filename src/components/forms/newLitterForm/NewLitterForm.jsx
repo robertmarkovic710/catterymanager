@@ -13,7 +13,8 @@ function NewLitterForm({ addLitter, cats }) {
     type: "",
     kittens: "",
     notes: "",
-    motherId: ""
+    motherId: "",
+    fatherId: ""
   });
 
   const handleChange = (e) => {
@@ -26,13 +27,17 @@ function NewLitterForm({ addLitter, cats }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!form.motherId || !form.start || !form.type || !form.kittens) {
+    if (!form.motherId || !form.fatherId || !form.start || !form.type || !form.kittens) {
       alert("Popuni obavezna polja");
       return;
     }
 
     const selectedCat = cats.find(
       c => c.id === Number(form.motherId)
+    );
+
+    const selectedFather = cats.find(
+      c => c.id === Number(form.fatherId)
     );
 
     const newLitter = {
@@ -42,8 +47,12 @@ function NewLitterForm({ addLitter, cats }) {
       type: form.type,
       kittens: form.kittens,
       notes: form.notes,
+
       motherId: form.motherId,
-      motherName: selectedCat.name
+      motherName: selectedCat.name,
+
+      fatherId: form.fatherId,
+      fatherName: selectedFather.name
     };
 
     addLitter(newLitter, form.motherId);
@@ -81,6 +90,26 @@ function NewLitterForm({ addLitter, cats }) {
 
             {cats
               .filter(cat => cat.gender === "Ženka")
+              .map(cat => (
+                <option key={cat.id} value={cat.id}>
+                  {cat.name}
+                </option>
+              ))}
+          </select>
+        </div>
+
+        <div className="form-group">
+          <label>Tata</label>
+
+          <select
+            name="fatherId"
+            value={form.fatherId}
+            onChange={handleChange}
+          >
+            <option value="">Odaberi mužjaka</option>
+
+            {cats
+              .filter(cat => cat.gender === "Mužjak")
               .map(cat => (
                 <option key={cat.id} value={cat.id}>
                   {cat.name}

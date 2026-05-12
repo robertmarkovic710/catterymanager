@@ -31,13 +31,22 @@ function LitterDetails({ cats, setCats }) {
 
         setForm({
             ...form,
-            [name]: name === "motherId" ? Number(value) : value
+            [name]:
+                name === "motherId" || name === "fatherId"
+                    ? Number(value)
+                    : value
         });
     };
 
     const handleSave = () => {
 
         const newMotherId = Number(form.motherId);
+
+        const selectedMother = cats.find(c => c.id === Number(form.motherId));
+        const selectedFather = cats.find(c => c.id === Number(form.fatherId));
+
+        form.motherName = selectedMother?.name;
+        form.fatherName = selectedFather?.name;
 
         const updatedCats = cats.map(cat => {
 
@@ -118,6 +127,24 @@ function LitterDetails({ cats, setCats }) {
                     >
                         {cats
                             .filter(cat => cat.gender === "Ženka")
+                            .map(cat => (
+                                <option key={cat.id} value={cat.id}>
+                                    {cat.name}
+                                </option>
+                            ))}
+                    </select>
+                </div>
+
+                <div className="form-group">
+                    <label>Tata</label>
+
+                    <select
+                        name="fatherId"
+                        value={form.fatherId}
+                        onChange={handleChange}
+                    >
+                        {cats
+                            .filter(cat => cat.gender === "Mužjak")
                             .map(cat => (
                                 <option key={cat.id} value={cat.id}>
                                     {cat.name}

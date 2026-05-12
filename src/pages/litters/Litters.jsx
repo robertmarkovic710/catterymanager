@@ -10,8 +10,7 @@ function Litters({ cats }) {
 
   const allLitters = cats.flatMap(cat =>
     (cat.litters || []).map(l => ({
-      ...l,
-      mother: cat.name
+      ...l
     }))
   );
 
@@ -76,6 +75,7 @@ function Litters({ cats }) {
 
               <div className="litter-left">
                 <h3>Mama: {litter.mother}</h3>
+                <p><span>Tata:</span> {litter.fatherName}</p>
                 <p><span>Početak:</span> {formatDateTime(litter.start)}</p>
                 <p><span>Mačića:</span> {litter.kittens}</p>
                 <p>
