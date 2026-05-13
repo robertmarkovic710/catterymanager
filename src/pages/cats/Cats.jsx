@@ -1,60 +1,119 @@
 import { useState } from "react";
+
 import { useNavigate } from "react-router-dom";
+
 import { MdAdd } from "react-icons/md";
+
 import "./Cats.css";
 
-function Cats({ cats }) {
+function Cats({
+  maleCats,
+  femaleCats
+}) {
+
   const navigate = useNavigate();
+
   const [search, setSearch] = useState("");
 
-  const filteredCats = cats.filter(cat =>
-    cat.name.toLowerCase().startsWith(search.toLowerCase())
+  // spoji sve mačke
+  const allCats = [
+    ...maleCats,
+    ...femaleCats
+  ];
+
+  // filtriranje
+  const filteredCats = allCats.filter(cat =>
+    cat.name
+      .toLowerCase()
+      .startsWith(search.toLowerCase())
   );
 
   return (
+
     <div className="cats-page">
 
       <div className="cats-header">
-        <h1 className="cats-title">Naše mačke</h1>
+
+        <h1 className="cats-title">
+          Naše mačke
+        </h1>
 
         <input
           type="text"
           placeholder="Pretraži ime mace"
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) =>
+            setSearch(e.target.value)
+          }
           className="search-input"
         />
+
       </div>
 
-      {cats.length === 0 ? (
+      {allCats.length === 0 ? (
+
         <p className="empty-message">
           Nemaš još unesenih mačaka.
         </p>
+
       ) : filteredCats.length === 0 ? (
-        <p className="empty-message">Nema rezultata.</p>
+
+        <p className="empty-message">
+          Nema rezultata.
+        </p>
+
       ) : (
+
         <div className="cat-grid">
+
           {filteredCats.map((cat) => (
+
             <div
               key={cat.id}
               className="cat-card"
-              onClick={() => navigate(`/cat/${cat.id}`)}
+              onClick={() =>
+                navigate(`/cat/${cat.id}`)
+              }
             >
+
               <h3>{cat.name}</h3>
-              <p><span>Pasmina:</span> {cat.breed}</p>
-              <p><span>Godine:</span> {cat.age}</p>
-              <p><span>Spol:</span> {cat.gender}</p>
+
+              <p>
+                <span>Pasmina:</span>
+                {" "}
+                {cat.breed}
+              </p>
+
+              <p>
+                <span>Godine:</span>
+                {" "}
+                {cat.age}
+              </p>
+
+              <p>
+                <span>Spol:</span>
+                {" "}
+                {cat.gender}
+              </p>
+
             </div>
+
           ))}
+
         </div>
+
       )}
 
       <button
         className="add-btn"
-        onClick={() => navigate("/addCat")}
+        onClick={() =>
+          navigate("/addCat")
+        }
         title="Dodaj mačku"
       >
+
         <MdAdd />
+
       </button>
 
     </div>

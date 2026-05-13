@@ -21,7 +21,7 @@ function CatForm({ addCat }) {
     if (!name) newErrors.name = "Ime je obavezno";
     if (!breed) newErrors.breed = "Odaberi pasminu";
     if (!age || parseInt(age) < 1) newErrors.age = "Starost mora biti ≥ 1";
-    if (!gender) newErrors.gender = "Odaberi spol";
+    if (!gender) newErrors.gender = "Odaberi spol"; 
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -52,7 +52,7 @@ function CatForm({ addCat }) {
 
         <input
           type="text"
-          placeholder="Ime mačke"
+          placeholder="Ime mačke" 
           value={name}
           onChange={(e) => setName(e.target.value)}
         />

@@ -4,7 +4,7 @@ import EditCatForm from "../../components/forms/editCatForm/EditCatForm";
 import "./CatDetails.css";
 import FormActionButtons from "../../components/formActionButtons/FormActionButtons";
 
-function CatDetails({ cats, setCats }) {
+function CatDetails({ maleCats, femaleCats }) {
 
     const navigate = useNavigate();
     const { id } = useParams();

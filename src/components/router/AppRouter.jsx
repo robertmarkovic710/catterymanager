@@ -9,9 +9,56 @@ import Litters from "../../pages/litters/Litters";
 import NewLitterForm from "../forms/newLitterForm/NewLitterForm";
 import LitterDetails from "../../pages/litterDetails/LitterDetails";
 
-function AppRouter({ cats, litters, maleCats, femaleCats, setCats, addCat, deleteCat, addLitter, toggleMenu }) {
+function ProtectedRoute({ user, children }) {
+  return user ? children : <Navigate to="/login" />;
+}
+
+function AppRouter({ maleCats, femaleCats, litters, addLitter, addCat, deleteCat, toggleMenu }) {
 
   const user = localStorage.getItem("user");
+
+  const routes = [
+    {
+      path: "/home",
+      element: <Home toggleMenu={toggleMenu} />,
+    },
+    {
+      path: "/cats",
+      element: (
+        <Cats maleCats={maleCats} femaleCats={femaleCats} deleteCat={deleteCat}/>
+      ),
+    },
+    {
+      path: "/addCat",
+      element: <CatForm addCat={addCat} />,
+    },
+    {
+      path: "/litters",
+      element: (
+        <Litters
+          maleCats={maleCats} femaleCats={femaleCats} litters={litters}
+        />
+      ),
+    },
+    {
+      path: "/addLitter",
+      element: (
+        <NewLitterForm addLitter={addLitter} maleCats={maleCats} femaleCats={femaleCats}/>
+      ),
+    },
+    {
+      path: "/cat/:id",
+      element: (
+        <CatDetails maleCats={maleCats} femaleCats={femaleCats}/>
+      ),
+    },
+    {
+      path: "/litter/:id",
+      element: (
+        <LitterDetails litters={litters} maleCats={maleCats} femaleCats={femaleCats}/>
+      ),
+    },
+  ];
 
   return (
     <Routes>
@@ -22,47 +69,24 @@ function AppRouter({ cats, litters, maleCats, femaleCats, setCats, addCat, delet
           user ? <Navigate to="/home" /> : <Login toggleMenu={toggleMenu} />
         }
       />
-      <Route
-        path="/home"
-        element={
-          user ? <Home toggleMenu={toggleMenu} /> : <Navigate to="/login" />
-        }
-      />
-      <Route
-        path="/cats"
-        element={
-          user ? <Cats cats={cats} deleteCat={deleteCat} /> : <Navigate to="/login" />
-        }
-      />
-      <Route
-        path="/addCat"
-        element={
-          user ? <CatForm addCat={addCat} /> : <Navigate to="/login" />
-        }
-      />
-      <Route
-        path="/litters"
-        element={
-          user ? <Litters maleCats={maleCats} femaleCats={femaleCats} litters={litters} /> : <Navigate to="/login" />
-        }
-      />
-      <Route
-        path="/addLitter"
-        element={
-          user ? <NewLitterForm addLitter={addLitter} cats={cats}  /> : <Navigate to="/login" />
-        }
-      />
-      <Route
-        path="/cat/:id"
-        element={<CatDetails cats={cats} setCats={setCats} />}
-      />
-      <Route
-        path="/litter/:id"
-        element={<LitterDetails cats={cats} setCats={setCats} />}
-      />
+
+      {routes.map((route) => (
+        <Route
+          key={route.path}
+          path={route.path}
+          element={
+            <ProtectedRoute user={user}>
+              {route.element}
+            </ProtectedRoute>
+          }
+        />
+      ))}
+
       <Route
         path="*"
-        element={<Navigate to={user ? "/home" : "/login"} />}
+        element={
+          <Navigate to={user ? "/home" : "/login"} />
+        }
       />
 
     </Routes>

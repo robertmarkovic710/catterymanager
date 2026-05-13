@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { GrAppsRounded } from "react-icons/gr";
 
 import SideMenu from "./components/sidemenu/SideMenu";
@@ -13,29 +13,78 @@ function App() {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const [cats, setCats] = useState(() => {
-    const saved = localStorage.getItem("cats");
+  const [litters, setLitters] = useState(() => {
+    const saved = localStorage.getItem("litters");
+
     return saved ? JSON.parse(saved) : [];
   });
 
-  const [maleCats, setMaleCats] = useState([]);
-  const [femaleCats, setFemaleCats] = useState([]);
-  const [litters, setLitters] = useState([]);
+  const [maleCats, setMaleCats] = useState(() => {
+    const saved = localStorage.getItem("maleCats");
+    return saved
+      ? JSON.parse(saved)
+      : [];
+  });
+
+  const [femaleCats, setFemaleCats] = useState(() => {
+    const saved = localStorage.getItem("femaleCats");
+    return saved
+      ? JSON.parse(saved)
+      : [];
+  });
 
   useEffect(() => {
-    localStorage.setItem("cats", JSON.stringify(cats));
-  }, [cats]);
+    localStorage.setItem(
+      "maleCats",
+      JSON.stringify(maleCats)
+    );
+
+  }, [maleCats]);
+
+  useEffect(() => {
+    localStorage.setItem(
+      "femaleCats",
+      JSON.stringify(femaleCats)
+    );
+
+  }, [femaleCats]);
+
+  useEffect(() => {
+
+    localStorage.setItem(
+      "litters",
+      JSON.stringify(litters)
+    );
+
+  }, [litters]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const addCat = (newCat) => {
-    setCats([...cats, newCat]);
+    if (newCat.gender === "Mužjak") {
+      setMaleCats(prev => [
+        ...prev,
+        newCat
+      ]);
+
+    } else {
+      setFemaleCats(prev => [
+        ...prev,
+        newCat
+      ]);
+
+    }
   };
 
   const deleteCat = (id) => {
-    setCats(cats.filter(cat => cat.id !== id));
+    setMaleCats(prev =>
+      prev.filter(cat => cat.id !== id)
+    );
+    setFemaleCats(prev =>
+      prev.filter(cat => cat.id !== id)
+    );
   };
 
   const addLitter = (newLitter) => {
@@ -47,13 +96,19 @@ function App() {
     <div>
       <SideMenu isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
 
-      {!["/login", "/addCat", "/addLitter"].includes(location.pathname) && (
+      {!(
+        location.pathname === "/login" ||
+        location.pathname === "/addCat" ||
+        location.pathname === "/addLitter" ||
+        location.pathname.startsWith("/cat/") ||
+        location.pathname.startsWith("/litter/")
+      ) && (
         <div className="global-menu-icon" onClick={toggleMenu}>
           <GrAppsRounded />
         </div>
       )}
 
-      <AppRouter cats={cats} litters={litters} maleCats={maleCats} femaleCats={femaleCats} setCats={setCats} addCat={addCat} deleteCat={deleteCat} addLitter={addLitter} toggleMenu={toggleMenu} />
+      <AppRouter maleCats={maleCats} femaleCats={femaleCats} litters={litters} addLitter={addLitter} setLitters={setLitters} addCat={addCat} deleteCat={deleteCat} toggleMenu={toggleMenu} />
 
     </div>
   );
