@@ -1,99 +1,109 @@
-import { useParams, useNavigate } from "react-router-dom";
-import { useState } from "react";
-import EditCatForm from "../../components/forms/editCatForm/EditCatForm";
 import "./CatDetails.css";
+import { useParams, useNavigate } from "react-router-dom";
+import BackButton from "../../components/backButton/BackButton";
 import FormActionButtons from "../../components/formActionButtons/FormActionButtons";
 
-function CatDetails({ maleCats, femaleCats }) {
+function CatDetails({ cats, litters, deleteCat }) {
+
+    const { id } = useParams();
 
     const navigate = useNavigate();
-    const { id } = useParams();
-    const cat = cats.find(c => c.id === Number(id));
 
-    if (!cat) return <p>Mačka nije pronađena</p>;
+    const cat = cats.find(
+        c => c.id === Number(id)
+    );
 
-    const [form, setForm] = useState({ ...cat, litters: cat.litters || [] });
-
-    const handleSave = () => {
-        const updated = cats.map(c =>
-            c.id === cat.id ? form : c
-        );
-        setCats(updated);
-        navigate("/cats");
-    };
-
-    const partners = [];
-
-    cats.forEach(c => {
-        (c.litters || []).forEach(litter => {
-
-            // ako je trenutna mačka mama
-            if (litter.motherId === cat.id) {
-                partners.push(litter.fatherName);
-            }
-
-            // ako je trenutna mačka tata
-            if (litter.fatherId === cat.id) {
-                partners.push(litter.motherName);
-            }
-        });
-    });
-
-    const uniquePartners = [...new Set(partners)];
+    if (!cat) {
+        return <p>Mačka nije pronađena.</p>;
+    }
 
     const handleDelete = () => {
-        if (form.litters && form.litters.length > 0) {
-            const confirmDelete = window.confirm(
-                "Ova mačka ima legla. Brisanjem ćeš obrisati i sva legla. Nastaviti?"
+
+        const isParent = litters.some(
+            litter =>
+                litter.motherId === cat.id ||
+                litter.fatherId === cat.id
+        );
+
+        if (isParent) {
+
+            alert(
+                "Mačka je roditelj u leglu i ne može se obrisati."
             );
-            if (!confirmDelete) return;
-        } else {
-            const confirmDelete = window.confirm("Jesi siguran da želiš obrisati mačku?");
-            if (!confirmDelete) return;
+
+            return;
         }
 
-        const updated = cats.filter(c => c.id !== cat.id);
+        const confirmed = window.confirm(
+            "Jesi siguran da želiš obrisati mačku?"
+        );
 
-        setCats(updated);
-        navigate("/cats");
+        if (!confirmed) return;
+
+        const deleted = deleteCat(cat.id);
+
+        if (deleted) {
+            navigate("/cats");
+        }
+    };
+
+    const handleEdit = () => {
+        navigate(`/editCat/${cat.id}`);
     };
 
     return (
+
         <div className="details-page">
+
+            <BackButton title="Povratak" />
 
             <div className="main-form">
 
-                <EditCatForm form={form} setForm={setForm} />
+                <h1 className="details-title">
+                    Detalji mačke
+                </h1>
+
+                <div className="details-section">
+
+                    <h3>Osnovni podaci</h3>
+
+                    <p>
+                        <span>Ime:</span>
+                        {" "}
+                        {cat.name}
+                    </p>
+
+                    <p>
+                        <span>Pasmina:</span>
+                        {" "}
+                        {cat.breed}
+                    </p>
+
+                    <p>
+                        <span>Dob:</span>
+                        {" "}
+                        {cat.age}
+                    </p>
+
+                    <p>
+                        <span>Spol:</span>
+                        {" "}
+                        {cat.gender}
+                    </p>
+
+                </div>
 
                 <FormActionButtons
-                    onSave={handleSave}
-                    saveText="Spremi izmjene"
-                    onDelete={handleDelete}
+                    showEdit={true}
+                    editText="Uredi detalje mačke"
+                    onEdit={handleEdit}
                     showDelete={true}
+                    onDelete={handleDelete}
+                    deleteText="Obriši mačku"
                 />
 
             </div>
 
-            <div className="partner-box">
-
-                <h3>
-                    {cat.gender === "Mužjak"
-                        ? "Partnerice"
-                        : "Partneri"}
-                </h3>
-
-                {uniquePartners.length === 0 ? (
-                    <p>Nema partnera.</p>
-                ) : (
-                    <ul>
-                        {uniquePartners.map((partner, index) => (
-                            <li key={index}>{partner}</li>
-                        ))}
-                    </ul>
-                )}
-
-            </div>
-            
         </div>
     );
 }

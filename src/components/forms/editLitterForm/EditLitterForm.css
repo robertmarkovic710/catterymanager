@@ -1,0 +1,109 @@
+.edit-litter-form {
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(10px);
+
+  padding: 20px;
+  border-radius: 12px;
+
+  display: flex;
+  flex-direction: column;
+
+  color: white;
+
+  width: 100%;
+  max-width: 500px;
+}
+
+.edit-litter-form h2 {
+  margin-bottom: 20px;
+}
+
+.edit-litter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  margin-bottom: 16px;
+}
+
+.edit-litter-group label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  color: rgba(255,255,255,0.7);
+}
+
+.edit-litter-form input,
+.edit-litter-form select,
+.edit-litter-form textarea {
+  width: 100%;
+  padding: 12px;
+
+  border-radius: 8px;
+  border: none;
+
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+.edit-litter-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.edit-litter-form input::placeholder,
+.edit-litter-form textarea::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+.edit-litter-form select,
+.edit-litter-form option {
+  color: black;
+}
+
+@media (max-width: 768px) {
+
+  .edit-litter-form {
+    padding: 16px;
+    border-radius: 0;
+  }
+
+  .edit-litter-form h2 {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .edit-litter-group {
+    margin-bottom: 14px;
+  }
+
+  .edit-litter-group label {
+    font-size: 12px;
+  }
+
+  .edit-litter-form input,
+  .edit-litter-form select,
+  .edit-litter-form textarea {
+    padding: 14px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .edit-litter-form {
+    padding: 12px;
+  }
+
+  .edit-litter-form h2 {
+    font-size: 18px;
+  }
+
+  .edit-litter-form input,
+  .edit-litter-form select,
+  .edit-litter-form textarea {
+    padding: 12px;
+    font-size: 15px;
+  }
+}

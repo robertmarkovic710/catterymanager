@@ -6,11 +6,7 @@ export default function BackButton({ title }) {
     const navigate = useNavigate();
 
     const handleBack = () => {
-        if (window.history.length > 1) {
-            navigate(-1);
-        } else {
-            navigate("/home");
-        }
+        navigate("/home");
     };
 
     return (

@@ -1,37 +1,41 @@
 import "./NewLitterForm.css";
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import BackButton from "../../backButton/BackButton";
+import CatGender from "../../../constants/CatGender";
 
-function NewLitterForm({ addLitter, maleCats, femaleCats }) {
+function NewLitterForm({ addLitter, cats }) {
 
   const navigate = useNavigate();
 
-  const [form, setForm] = useState({
+  const maleCats = cats.filter(
+    cat => cat.gender === CatGender.MALE
+  );
 
+  const femaleCats = cats.filter(
+    cat => cat.gender === CatGender.FEMALE
+  );
+
+  const [form, setForm] = useState({
     motherId: "",
     fatherId: "",
     birthDate: "",
     birthTime: "",
     deliveryType: "",
     totalKittens: "",
-    maleKittens: "",
+    maleKittens: "", 
     femaleKittens: "",
     notes: ""
   });
 
   const handleChange = (e) => {
 
-    const { name, value, type, checked } = e.target;
+    const { name, value } = e.target;
 
-    setForm({
-      ...form,
-
-      [name]:
-        type === "checkbox" ? checked : value
-    });
+    setForm(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
   const handleSubmit = (e) => {
@@ -128,6 +132,7 @@ function NewLitterForm({ addLitter, maleCats, femaleCats }) {
             name="birthDate"
             value={form.birthDate}
             onChange={handleChange}
+            onClick={(e) => e.target.showPicker()}
           />
         </div>
 
@@ -138,6 +143,7 @@ function NewLitterForm({ addLitter, maleCats, femaleCats }) {
             name="birthTime"
             value={form.birthTime}
             onChange={handleChange}
+            onClick={(e) => e.target.showPicker()}
           />
         </div>
 

@@ -3,9 +3,9 @@ import "./Litters.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { MdAdd, MdVaccines, MdSort } from "react-icons/md";
+import { MdAdd, MdSort } from "react-icons/md";
 
-function Litters({ maleCats, femaleCats, litters }) {
+function Litters({ litters }) {
 
   const navigate = useNavigate();
 

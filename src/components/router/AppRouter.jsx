@@ -3,17 +3,19 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "../../pages/login/Login";
 import Home from "../../pages/home/Home";
 import Cats from "../../pages/cats/Cats";
-import CatForm from "../forms/newCatForm/NewCatForm";
+import NewCatForm from "../forms/newCatForm/NewCatForm";
 import CatDetails from "../../pages/catDetails/CatDetails";
 import Litters from "../../pages/litters/Litters";
 import NewLitterForm from "../forms/newLitterForm/NewLitterForm";
 import LitterDetails from "../../pages/litterDetails/LitterDetails";
+import EditCat from "../../pages/editCat/EditCat";
+import EditLitter from "../../pages/editLitter/EditLitter";
 
 function ProtectedRoute({ user, children }) {
   return user ? children : <Navigate to="/login" />;
 }
 
-function AppRouter({ maleCats, femaleCats, litters, addLitter, addCat, deleteCat, toggleMenu }) {
+function AppRouter({ cats, setCats, litters, setLitters, addCat, addLitter, deleteCat, deleteLitter, toggleMenu }) {
 
   const user = localStorage.getItem("user");
 
@@ -25,37 +27,48 @@ function AppRouter({ maleCats, femaleCats, litters, addLitter, addCat, deleteCat
     {
       path: "/cats",
       element: (
-        <Cats maleCats={maleCats} femaleCats={femaleCats} deleteCat={deleteCat}/>
-      ),
-    },
-    {
-      path: "/addCat",
-      element: <CatForm addCat={addCat} />,
-    },
-    {
-      path: "/litters",
-      element: (
-        <Litters
-          maleCats={maleCats} femaleCats={femaleCats} litters={litters}
-        />
-      ),
-    },
-    {
-      path: "/addLitter",
-      element: (
-        <NewLitterForm addLitter={addLitter} maleCats={maleCats} femaleCats={femaleCats}/>
+        <Cats cats={cats} />
       ),
     },
     {
       path: "/cat/:id",
       element: (
-        <CatDetails maleCats={maleCats} femaleCats={femaleCats}/>
+        <CatDetails cats={cats} litters={litters} deleteCat={deleteCat} />
+      ),
+    },
+    {
+      path: "/addCat",
+      element:
+        <NewCatForm addCat={addCat} />,
+    },
+    {
+      path: "/editCat/:id",
+      element: (
+        <EditCat cats={cats} setCats={setCats} />
+      ),
+    },
+    {
+      path: "/litters",
+      element: (
+        <Litters cats={cats} litters={litters} />
       ),
     },
     {
       path: "/litter/:id",
       element: (
-        <LitterDetails litters={litters} maleCats={maleCats} femaleCats={femaleCats}/>
+        <LitterDetails litters={litters} cats={cats} deleteLitter={deleteLitter} />
+      ),
+    },
+    {
+      path: "/addLitter",
+      element: (
+        <NewLitterForm addLitter={addLitter} cats={cats} />
+      ),
+    },
+    {
+      path: "/editLitter/:id",
+      element: (
+        <EditLitter litters={litters} setLitters={setLitters} cats={cats}/>
       ),
     },
   ];

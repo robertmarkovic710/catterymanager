@@ -2,6 +2,7 @@ import "./NewCatForm.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BackButton from "../../backButton/BackButton";
+import CatGender from "../../../constants/CatGender";
 
 function CatForm({ addCat }) {
 
@@ -34,11 +35,11 @@ function CatForm({ addCat }) {
       id: Date.now(),
       name,
       breed,
-      age,
+      age: Number(age),
       gender 
     };
 
-    addCat(newCat);
+    addCat(newCat); 
     navigate("/cats");
   };
 
@@ -90,16 +91,16 @@ function CatForm({ addCat }) {
         <div className="gender-toggle">
           <button
             type="button"
-            className={gender === "Mužjak" ? "active" : ""}
-            onClick={() => setGender("Mužjak")}
+            className={gender === CatGender.MALE ? "active" : ""}
+            onClick={() => setGender(CatGender.MALE)}
           >
             Mužjak
           </button>
 
           <button
             type="button"
-            className={gender === "Ženka" ? "active" : ""}
-            onClick={() => setGender("Ženka")}
+            className={gender === CatGender.FEMALE ? "active" : ""}
+            onClick={() => setGender(CatGender.FEMALE)}
           >
             Ženka
           </button>

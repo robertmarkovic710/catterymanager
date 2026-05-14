@@ -1,11 +1,10 @@
 import "./LitterDetails.css";
 import BackButton from "../../components/backButton/BackButton";
-
 import { useParams, useNavigate } from "react-router-dom";
-
 import { MdVaccines } from "react-icons/md";
+import FormActionButtons from "../../components/formActionButtons/FormActionButtons";
 
-function LitterDetails({ litters, maleCats, femaleCats }) {
+function LitterDetails({ litters, cats, deleteLitter }) {
 
     const { id } = useParams();
 
@@ -19,13 +18,32 @@ function LitterDetails({ litters, maleCats, femaleCats }) {
         return <p>Leglo nije pronađeno.</p>;
     }
 
-    const mother = femaleCats.find(
-        cat => cat.id === litter.motherId
+    const mother = cats.find(
+        cat => cat.id === Number(litter.motherId)
     );
 
-    const father = maleCats.find(
-        cat => cat.id === litter.fatherId
+    const father = cats.find(
+        cat => cat.id === Number(litter.fatherId)
     );
+
+    const handleEdit = () => {
+        navigate(`/editLitter/${litter.id}`);
+    };
+
+    const handleDelete = () => {
+
+        const confirmed = window.confirm(
+            "Jesi siguran da želiš obrisati leglo?"
+        );
+
+        if (!confirmed) return;
+
+        const deleted = deleteLitter(litter.id);
+
+        if (deleted) {
+            navigate("/litters");
+        }
+    };
 
     return (
         <div className="details-page">
@@ -104,6 +122,16 @@ function LitterDetails({ litters, maleCats, femaleCats }) {
                     <MdVaccines />
                     Cjepljenja
                 </button>
+
+                <FormActionButtons
+                    onEdit={handleEdit}
+                    editText="Uredi leglo"
+                    showEdit={true}
+
+                    onDelete={handleDelete}
+                    deleteText="Obriši leglo"
+                    showDelete={true}
+                />
 
             </div>
         </div>

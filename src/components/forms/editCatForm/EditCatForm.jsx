@@ -1,3 +1,4 @@
+import './EditCatForm.css'
 import { BsSignDeadEndFill } from "react-icons/bs";
 
 function EditCatForm({ form, setForm }) {
@@ -20,7 +21,7 @@ function EditCatForm({ form, setForm }) {
           name="name"
           value={form.name}
           onChange={handleChange}
-        />
+        /> 
       </div>
 
       <div className="form-group">

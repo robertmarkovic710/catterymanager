@@ -1,28 +1,16 @@
 import { useState } from "react";
-
 import { useNavigate } from "react-router-dom";
-
 import { MdAdd } from "react-icons/md";
-
+import CatGender from "../../constants/CatGender";
 import "./Cats.css";
 
-function Cats({
-  maleCats,
-  femaleCats
-}) {
+function Cats({ cats }) {
 
   const navigate = useNavigate();
 
   const [search, setSearch] = useState("");
 
-  // spoji sve mačke
-  const allCats = [
-    ...maleCats,
-    ...femaleCats
-  ];
-
-  // filtriranje
-  const filteredCats = allCats.filter(cat =>
+  const filteredCats = cats.filter(cat =>
     cat.name
       .toLowerCase()
       .startsWith(search.toLowerCase())
@@ -34,9 +22,7 @@ function Cats({
 
       <div className="cats-header">
 
-        <h1 className="cats-title">
-          Naše mačke
-        </h1>
+        <h1 className="cats-title">Naše mačke</h1>
 
         <input
           type="text"
@@ -50,7 +36,7 @@ function Cats({
 
       </div>
 
-      {allCats.length === 0 ? (
+      {cats.length === 0 ? (
 
         <p className="empty-message">
           Nemaš još unesenih mačaka.
@@ -59,7 +45,7 @@ function Cats({
       ) : filteredCats.length === 0 ? (
 
         <p className="empty-message">
-          Nema rezultata.
+          Nema podudaranja.
         </p>
 
       ) : (
@@ -111,9 +97,7 @@ function Cats({
         }
         title="Dodaj mačku"
       >
-
         <MdAdd />
-
       </button>
 
     </div>

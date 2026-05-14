@@ -1,35 +1,49 @@
 import "./FormActionButtons.css";
-import { useNavigate } from "react-router-dom";
 
 export default function FormActionButtons({
     onSave,
     saveText = "Spremi",
-    showCancel = true,
+    showSave = false,
+
+    onEdit,
+    editText = "Uredi",
+    showEdit = false,
+
+    onCancel,
+    cancelText = "Odustani",
+    showCancel = false,
+
     onDelete,
     deleteText = "Obriši",
     showDelete = false
 }) {
 
-    const navigate = useNavigate();
-
     return (
+
         <div className="form-actions">
 
-            <button className="save-btn" onClick={onSave}>
-                {saveText}
-            </button>
+            {showSave && (
+                <button
+                    type="button" className="save-btn" onClick={onSave}>
+                    {saveText}
+                </button>
+            )}
+
+            {showEdit && (
+                <button
+                    type="button" className="save-btn" onClick={onEdit}>
+                    {editText}
+                </button>
+            )}
 
             {showCancel && (
-                <button
-                    className="cancel-btn"
-                    onClick={() => navigate(-1)}
-                >
-                    Odustani
+                <button type="button" className="cancel-btn" onClick={onCancel}>
+                    {cancelText}
                 </button>
             )}
 
             {showDelete && (
-                <button className="delete-btn" onClick={onDelete}>
+                <button type="button" className="delete-btn" onClick={onDelete}>
                     {deleteText}
                 </button>
             )}
