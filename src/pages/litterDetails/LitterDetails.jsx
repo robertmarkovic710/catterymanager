@@ -1,5 +1,5 @@
 import "./LitterDetails.css";
-import BackButton from "../../components/backButton/BackButton";
+import BackArrowButton from "../../components/backArrowButton/BackArrowButton";
 import { useParams, useNavigate } from "react-router-dom";
 import { MdVaccines } from "react-icons/md";
 import FormActionButtons from "../../components/formActionButtons/FormActionButtons";
@@ -52,7 +52,7 @@ function LitterDetails({ litters, cats, deleteLitter }) {
     return (
         <div className="litter-details-page">
 
-            <BackButton title="Povratak" handleReturn={handleBack} />
+            <BackArrowButton title="Povratak" handleReturn={handleBack} />
 
             <div className="litter-main-form">
 

@@ -1,9 +1,7 @@
 import "./NewExhibitionForm.css";
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-import BackButton from "../../backButton/BackButton";
+import BackArrowButton from "../../backArrowButton/BackArrowButton";
 
 function NewExhibitionForm({ addExhibition }) {
 
@@ -43,7 +41,7 @@ function NewExhibitionForm({ addExhibition }) {
 
         <div className="new-exhibition-page">
 
-            <BackButton title="Povratak" handleReturn={handleBack}/>
+            <BackArrowButton title="Povratak" handleReturn={handleBack}/>
 
             <form
                 className="new-exhibition-form"
@@ -72,11 +70,12 @@ function NewExhibitionForm({ addExhibition }) {
                     type="date"
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
+                    onClick={(e) => e.target.showPicker()}
                     required
                 />
 
                 <button type="submit">
-                    Add Exhibition
+                    Dodaj izložbu
                 </button>
 
             </form>

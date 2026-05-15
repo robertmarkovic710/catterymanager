@@ -1,8 +1,8 @@
-import "./BackButton.css";
+import "./BackArrowButton.css";
 import { useNavigate } from "react-router-dom";
 import { IoArrowBack } from "react-icons/io5";
 
-export default function BackButton({ title, handleReturn }) {
+export default function BackArrowButton({ title, handleReturn }) {
     const navigate = useNavigate();
 
     const handleBack = () => {

@@ -13,6 +13,7 @@ import EditLitter from "../pages/editLitter/EditLitter";
 import Exhibitions from "../pages/exhibitions/Exhibitions";
 import NewExhibitionForm from "../components/forms/newExhibitionForm/NewExhibitionForm";
 import ExhibitionDetails from "../pages/exhibitionDetails/ExhibitionDetails";
+import EditExhibition from "../pages/editExhibitions/EditExhibitions";
 
 function ProtectedRoute({ user, children }) {
   return user ? children : <Navigate to="/login" />;
@@ -77,7 +78,7 @@ function AppRouter({ cats, setCats, litters, setLitters, addCat, addLitter, dele
     {
       path: "/exhibitions",
       element: (
-        <Exhibitions exhibitions={exhibitions} deleteExhibition={deleteExhibition} />
+        <Exhibitions exhibitions={exhibitions}/>
       ),
     },
     {
@@ -90,6 +91,12 @@ function AppRouter({ cats, setCats, litters, setLitters, addCat, addLitter, dele
       path: "/exhibition/:id",
       element: (
         <ExhibitionDetails exhibitions={exhibitions} deleteExhibition={deleteExhibition} />
+      ),
+    },
+    {
+      path: "/editExhibition/:id",
+      element: (
+        <EditExhibition exhibitions={exhibitions} setExhibitions={setExhibitions} />
       ),
     },
   ];

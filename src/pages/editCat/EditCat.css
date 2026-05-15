@@ -4,9 +4,7 @@
 
 .edit-cat-page {
     min-height: 100vh;
-
     padding: 110px 20px 40px 20px;
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,12 +13,9 @@
 .edit-cat-main-form {
     width: 100%;
     max-width: 500px;
-
     margin-top: 25px;
-
     background: rgba(0, 0, 0, 0.15);
     backdrop-filter: blur(10px);
-
     padding: 25px;
     border-radius: 12px;
 
@@ -30,7 +25,54 @@
     color: white;
 }
 
-/* TABLET */
+.edit-cat-form {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.edit-cat-title {
+    margin-bottom: 20px;
+}
+
+.edit-cat-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.edit-cat-group label {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.edit-cat-group input,
+.edit-cat-group select {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.edit-cat-group input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.edit-cat-group select,
+.edit-cat-group option {
+    color: black;
+}
+
 @media (max-width: 768px) {
 
     .edit-cat-page {
@@ -39,13 +81,34 @@
 
     .edit-cat-main-form {
         margin-top: 20px;
-
         padding: 16px;
         border-radius: 0;
     }
+
+    .edit-cat-form {
+        padding: 16px;
+    }
+
+    .edit-cat-title {
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+
+    .edit-cat-group {
+        margin-bottom: 14px;
+    }
+
+    .edit-cat-group label {
+        font-size: 12px;
+    }
+
+    .edit-cat-group input,
+    .edit-cat-group select {
+        padding: 14px;
+        font-size: 16px;
+    }
 }
 
-/* MOBITEL */
 @media (max-width: 480px) {
 
     .edit-cat-page {
@@ -54,7 +117,21 @@
 
     .edit-cat-main-form {
         margin-top: 16px;
-
         padding: 12px;
+    }
+
+    .edit-cat-form {
+        padding: 12px;
+        border-radius: 10px;
+    }
+
+    .edit-cat-title {
+        font-size: 18px;
+    }
+
+    .edit-cat-group input,
+    .edit-cat-group select {
+        padding: 12px;
+        font-size: 15px;
     }
 }

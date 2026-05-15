@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-.edit-litter-page {
+.edit-exhibition-page {
     min-height: 100vh;
     padding: 110px 20px 40px 20px;
     display: flex;
@@ -10,7 +10,7 @@
     align-items: center;
 }
 
-.edit-litter-main-form {
+.edit-exhibition-main-form {
     width: 100%;
     max-width: 500px;
     margin-top: 25px;
@@ -23,7 +23,7 @@
     color: white;
 }
 
-.edit-litter-form {
+.edit-exhibition-form {
     width: 100%;
     background: rgba(0, 0, 0, 0.18);
     border: 1px solid rgba(255, 255, 255, 0.06);
@@ -34,27 +34,25 @@
     color: white;
 }
 
-.edit-litter-title {
+.edit-exhibition-title {
     margin-bottom: 20px;
 }
 
-.edit-litter-group {
+.edit-exhibition-group {
     display: flex;
     flex-direction: column;
     gap: 6px;
     margin-bottom: 16px;
 }
 
-.edit-litter-group label {
+.edit-exhibition-group label {
     font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     color: rgba(255, 255, 255, 0.7);
 }
 
-.edit-litter-group input,
-.edit-litter-group select,
-.edit-litter-group textarea {
+.edit-exhibition-group input {
     width: 100%;
     padding: 12px;
     border: none;
@@ -63,53 +61,46 @@
     color: white;
 }
 
-.edit-litter-group textarea {
-    min-height: 100px;
-    resize: vertical;
-}
-
-.edit-litter-group input::placeholder,
-.edit-litter-group textarea::placeholder {
+.edit-exhibition-group input::placeholder {
     color: rgba(255, 255, 255, 0.6);
 }
 
-.edit-litter-group select,
-.edit-litter-group option {
-    color: black;
+.edit-exhibition-group input:focus {
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.14);
 }
 
 @media (max-width: 768px) {
 
-    .edit-litter-page {
+    .edit-exhibition-page {
         padding: 90px 15px 30px 15px;
     }
 
-    .edit-litter-main-form {
+    .edit-exhibition-main-form {
         margin-top: 20px;
         padding: 16px;
         border-radius: 0;
     }
 
-    .edit-litter-form {
+    .edit-exhibition-form {
         padding: 16px;
     }
 
-    .edit-litter-title {
+    .edit-exhibition-title {
         font-size: 20px;
         margin-bottom: 16px;
     }
 
-    .edit-litter-group {
+    .edit-exhibition-group {
         margin-bottom: 14px;
     }
 
-    .edit-litter-group label {
+    .edit-exhibition-group label {
         font-size: 12px;
     }
 
-    .edit-litter-group input,
-    .edit-litter-group select,
-    .edit-litter-group textarea {
+    .edit-exhibition-group input {
         padding: 14px;
         font-size: 16px;
     }
@@ -117,27 +108,25 @@
 
 @media (max-width: 480px) {
 
-    .edit-litter-page {
+    .edit-exhibition-page {
         padding: 85px 12px 25px 12px;
     }
 
-    .edit-litter-main-form {
+    .edit-exhibition-main-form {
         margin-top: 16px;
         padding: 12px;
     }
 
-    .edit-litter-form {
+    .edit-exhibition-form {
         padding: 12px;
         border-radius: 10px;
     }
 
-    .edit-litter-title {
+    .edit-exhibition-title {
         font-size: 18px;
     }
 
-    .edit-litter-group input,
-    .edit-litter-group select,
-    .edit-litter-group textarea {
+    .edit-exhibition-group input {
         padding: 12px;
         font-size: 15px;
     }

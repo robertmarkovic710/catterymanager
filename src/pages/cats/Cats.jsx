@@ -90,7 +90,7 @@ function Cats({ cats }) {
 
       )}
 
-      <button
+      <button 
         className="add-btn"
         onClick={() =>
           navigate("/addCat")

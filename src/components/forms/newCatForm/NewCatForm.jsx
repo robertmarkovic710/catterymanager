@@ -1,7 +1,7 @@
 import "./NewCatForm.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import BackButton from "../../backButton/BackButton";
+import BackArrowButton from "../../backArrowButton/BackArrowButton";
 import CatGender from "../../../constants/CatGender";
 
 function CatForm({ addCat }) {
@@ -53,7 +53,7 @@ function CatForm({ addCat }) {
 
     <div className="new-cat-page">
 
-      <BackButton title="Povratak" handleReturn={handleBack} />
+      <BackArrowButton title="Povratak" handleReturn={handleBack} />
 
       <form
         className="new-cat-card"

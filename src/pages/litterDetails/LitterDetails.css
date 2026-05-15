@@ -2,26 +2,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
     min-height: 100vh;
-
     padding: 110px 20px 40px 20px;
 }
 
 .litter-main-form {
     width: 100%;
     max-width: 700px;
-
     margin-top: 25px;
-
     background: rgba(0, 0, 0, 0.15);
-
     padding: 25px;
     border-radius: 16px;
-
     display: flex;
     flex-direction: column;
-
     color: white;
 }
 
@@ -30,32 +23,24 @@
 }
 
 .litter-details-section {
-
     background: rgba(0, 0, 0, 0.30);
-
     backdrop-filter: blur(10px);
-
     border: 1px solid rgba(255, 255, 255, 0.08);
-
     padding: 20px;
     border-radius: 12px;
-
     margin-bottom: 20px;
 }
 
 .litter-details-section h3 {
     margin-top: 0;
     margin-bottom: 16px;
-
     font-size: 18px;
     font-weight: 600;
 }
 
 .litter-details-section p {
     margin-bottom: 12px;
-
     color: rgba(255, 255, 255, 0.9);
-
     line-height: 1.5;
 }
 
@@ -70,23 +55,17 @@
 
 .vaccination-btn {
     margin-bottom: 20px;
-
     width: 100%;
     padding: 12px;
-
     border: none;
     border-radius: 8px;
-
     background: #274046;
     color: white;
-
     font-size: 15px;
-
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 8px;
-
     cursor: pointer;
     transition: 0.2s;
 }
@@ -104,7 +83,6 @@
     .litter-main-form {
         width: 100%;
         max-width: 100%;
-
         padding: 20px;
     }
 
@@ -121,7 +99,6 @@
 
     .litter-main-form {
         margin-top: 16px;
-
         padding: 14px;
         border-radius: 12px;
     }

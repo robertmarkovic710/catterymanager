@@ -1,9 +1,15 @@
 import "./Exhibitions.css";
+import { MdAdd } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import AddNewButton from "../../components/addNewButton/addNewButton";
 
-function Exhibitions({ exhibitions, deleteExhibition }) {
+function Exhibitions({ exhibitions }) {
 
     const navigate = useNavigate();
+
+    const handleButtonClick = () => {
+        navigate('/addExhibition');
+    }
 
     return (
 
@@ -12,13 +18,6 @@ function Exhibitions({ exhibitions, deleteExhibition }) {
             <div className="exhibitions-header">
 
                 <h1>Izložbe</h1>
-
-                <button
-                    className="add-exhibition-btn"
-                    onClick={() => navigate("/addExhibition")}
-                >
-                    + Nova izložba
-                </button>
 
             </div>
 
@@ -52,6 +51,7 @@ function Exhibitions({ exhibitions, deleteExhibition }) {
 
             </div>
 
+            <AddNewButton title="Dodaj izložbu" handleAction={handleButtonClick} />
         </div>
     );
 }

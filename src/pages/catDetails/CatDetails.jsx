@@ -1,6 +1,6 @@
 import "./CatDetails.css";
 import { useParams, useNavigate } from "react-router-dom";
-import BackButton from "../../components/backButton/BackButton";
+import BackArrowButton from "../../components/backArrowButton/BackArrowButton";
 import FormActionButtons from "../../components/formActionButtons/FormActionButtons";
 
 function CatDetails({ cats, litters, deleteCat }) {
@@ -19,10 +19,8 @@ function CatDetails({ cats, litters, deleteCat }) {
 
     const handleDelete = () => {
 
-        const isParent = litters.some(
-            litter =>
-                litter.motherId === cat.id ||
-                litter.fatherId === cat.id
+        const isParent = litters.some (
+            litter => litter.motherId === cat.id || litter.fatherId === cat.id
         );
 
         if (isParent) {
@@ -39,7 +37,7 @@ function CatDetails({ cats, litters, deleteCat }) {
         );
 
         if (!confirmed) return;
-
+ 
         const deleted = deleteCat(cat.id);
 
         if (deleted) {
@@ -59,7 +57,7 @@ function CatDetails({ cats, litters, deleteCat }) {
 
         <div className="cat-details-page">
 
-            <BackButton title="Povratak" handleReturn={handleBack} />
+            <BackArrowButton title="Povratak" handleReturn={handleBack} />
 
             <div className="cat-main-form">
 
@@ -101,6 +99,7 @@ function CatDetails({ cats, litters, deleteCat }) {
                     showEdit={true}
                     editText="Uredi mačku"
                     onEdit={handleEdit}
+                    
                     showDelete={true}
                     onDelete={handleDelete}
                     deleteText="Obriši mačku"

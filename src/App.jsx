@@ -85,9 +85,12 @@ function App() {
         location.pathname === "/addCat" ||
         location.pathname === "/addLitter" ||
         location.pathname.startsWith("/cat/") ||
+        location.pathname.startsWith("/editCat/") ||
         location.pathname.startsWith("/litter/") ||
+        location.pathname.startsWith("/editLitter/") ||
         location.pathname === "/addExhibition" ||
-        location.pathname.startsWith("/exhibition/")
+        location.pathname.startsWith("/exhibition/") ||
+        location.pathname.startsWith("/editExhibition/")
       ) && (
 
           <div

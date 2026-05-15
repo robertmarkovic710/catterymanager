@@ -1,13 +1,9 @@
 import "./ExhibitionDetails.css";
-
 import { useParams, useNavigate } from "react-router-dom";
+import BackArrowButton from "../../components/backArrowButton/BackArrowButton";
+import FormActionButtons from "../../components/formActionButtons/FormActionButtons";
 
-import BackButton from "../../components/backButton/BackButton";
-
-function ExhibitionDetails({
-    exhibitions,
-    deleteExhibition
-}) {
+function ExhibitionDetails({ exhibitions, deleteExhibition }) {
 
     const { id } = useParams();
 
@@ -18,23 +14,31 @@ function ExhibitionDetails({
     );
 
     if (!exhibition) {
-
-        return (
-
-            <div className="exhibition-details-page">
-
-                <BackButton />
-
-                <h1>Exhibition not found.</h1>
-
-            </div>
-        );
+        return <p>Izložba nije pronađena.</p>;
     }
 
     const handleDelete = () => {
 
-        deleteExhibition(exhibition.id);
+        const confirmed = window.confirm(
+            "Jesi siguran da želiš obrisati izložbu?"
+        );
 
+        if (!confirmed) return;
+
+        const deleted = deleteExhibition(
+            exhibition.id
+        );
+
+        if (deleted) {
+            navigate("/exhibitions");
+        }
+    };
+
+    const handleEdit = () => {
+        navigate(`/editExhibition/${exhibition.id}`);
+    };
+
+    const handleBack = () => {
         navigate("/exhibitions");
     };
 
@@ -42,34 +46,50 @@ function ExhibitionDetails({
 
         <div className="exhibition-details-page">
 
-            <BackButton />
+            <BackArrowButton
+                title="Povratak"
+                handleReturn={handleBack}
+            />
 
-            <div className="exhibition-details-card">
+            <div className="exhibition-main-form">
 
-                <h1>{exhibition.name}</h1>
+                <h1 className="exhibition-details-title">
+                    Detalji izložbe
+                </h1>
 
-                <div className="details-section">
+                <div className="exhibition-details-section">
 
-                    <h3>Location</h3>
+                    <h3>Osnovni podaci</h3>
 
-                    <p>{exhibition.location}</p>
+                    <p>
+                        <span>Naziv:</span>
+                        {" "}
+                        {exhibition.name}
+                    </p>
+
+                    <p>
+                        <span>Lokacija:</span>
+                        {" "}
+                        {exhibition.location}
+                    </p>
+
+                    <p>
+                        <span>Datum:</span>
+                        {" "}
+                        {exhibition.date}
+                    </p>
 
                 </div>
 
-                <div className="details-section">
+                <FormActionButtons
+                    showEdit={true}
+                    editText="Uredi izložbu"
+                    onEdit={handleEdit}
 
-                    <h3>Date</h3>
-
-                    <p>{exhibition.date}</p>
-
-                </div>
-
-                <button
-                    className="delete-btn"
-                    onClick={handleDelete}
-                >
-                    Delete Exhibition
-                </button>
+                    showDelete={true}
+                    deleteText="Obriši izložbu"
+                    onDelete={handleDelete}
+                />
 
             </div>
 

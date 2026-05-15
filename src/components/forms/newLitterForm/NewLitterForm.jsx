@@ -1,7 +1,7 @@
 import "./NewLitterForm.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import BackButton from "../../backButton/BackButton";
+import BackArrowButton from "../../backArrowButton/BackArrowButton";
 import CatGender from "../../../constants/CatGender";
 
 function NewLitterForm({ addLitter, cats, litters }) {
@@ -106,7 +106,7 @@ function NewLitterForm({ addLitter, cats, litters }) {
 
     <div className="new-litter-page">
 
-      <BackButton title="Povratak" handleReturn={handleBack}/>
+      <BackArrowButton title="Povratak" handleReturn={handleBack}/>
 
       <form
         className="new-litter-form"
