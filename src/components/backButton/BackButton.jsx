@@ -2,11 +2,11 @@ import "./BackButton.css";
 import { useNavigate } from "react-router-dom";
 import { IoArrowBack } from "react-icons/io5";
 
-export default function BackButton({ title }) {
+export default function BackButton({ title, handleReturn }) {
     const navigate = useNavigate();
 
     const handleBack = () => {
-        navigate("/home");
+        handleReturn();
     };
 
     return (

@@ -45,10 +45,14 @@ function LitterDetails({ litters, cats, deleteLitter }) {
         }
     };
 
+    const handleBack = () => {
+        navigate('/litters');
+    }
+
     return (
         <div className="litter-details-page">
 
-            <BackButton title="Povratak" />
+            <BackButton title="Povratak" handleReturn={handleBack} />
 
             <div className="litter-main-form">
 

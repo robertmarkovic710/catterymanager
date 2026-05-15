@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import { GrAppsRounded } from "react-icons/gr";
 
 import SideMenu from "./components/sidemenu/SideMenu";
-import AppRouter from "./components/router/AppRouter";
+import AppRouter from "./router/AppRouter";
 
 import "./App.css";
 

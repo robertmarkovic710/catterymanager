@@ -51,11 +51,15 @@ function CatDetails({ cats, litters, deleteCat }) {
         navigate(`/editCat/${cat.id}`);
     };
 
+    const handleBack = () => {
+        navigate('/cats');
+    }
+
     return (
 
         <div className="cat-details-page">
 
-            <BackButton title="Povratak" />
+            <BackButton title="Povratak" handleReturn={handleBack} />
 
             <div className="cat-main-form">
 

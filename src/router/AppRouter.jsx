@@ -1,15 +1,15 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 
-import Login from "../../pages/login/Login";
-import Home from "../../pages/home/Home";
-import Cats from "../../pages/cats/Cats";
-import NewCatForm from "../forms/newCatForm/NewCatForm";
-import CatDetails from "../../pages/catDetails/CatDetails";
-import Litters from "../../pages/litters/Litters";
-import NewLitterForm from "../forms/newLitterForm/NewLitterForm";
-import LitterDetails from "../../pages/litterDetails/LitterDetails";
-import EditCat from "../../pages/editCat/EditCat";
-import EditLitter from "../../pages/editLitter/EditLitter";
+import Login from "../pages/login/Login";
+import Home from "../pages/home/Home";
+import Cats from "../pages/cats/Cats";
+import NewCatForm from "../components/forms/newCatForm/NewCatForm";
+import CatDetails from "../pages/catDetails/CatDetails";
+import Litters from "../pages/litters/Litters";
+import NewLitterForm from "../components/forms/newLitterForm/NewLitterForm";
+import LitterDetails from "../pages/litterDetails/LitterDetails";
+import EditCat from "../pages/editCat/EditCat";
+import EditLitter from "../pages/editLitter/EditLitter";
 
 function ProtectedRoute({ user, children }) {
   return user ? children : <Navigate to="/login" />;
