@@ -39,9 +39,9 @@ function EditCat({ cats, setCats }) {
 
     return (
 
-        <div className="details-page">
+        <div className="edit-cat-page">
 
-            <div className="main-form">
+            <div className="edit-cat-main-form">
 
                 <EditCatForm
                     form={form}

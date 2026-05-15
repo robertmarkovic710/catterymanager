@@ -45,9 +45,9 @@ function EditLitter({
 
     return (
 
-        <div className="details-page">
+        <div className="edit-litter-page">
 
-            <div className="main-form">
+            <div className="edit-litter-main-form">
 
                 <EditLitterForm
                     form={form}
@@ -57,7 +57,7 @@ function EditLitter({
 
                 <FormActionButtons
                     onSave={handleSave}
-                    saveText="Spremi"
+                    saveText="Spremi podatke"
                     showSave={true}
 
                     onCancel={handleCancel}

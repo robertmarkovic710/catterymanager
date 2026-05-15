@@ -1,6 +1,8 @@
 .edit-litter-form {
-  background: rgba(0,0,0,0.25);
-  backdrop-filter: blur(10px);
+
+  background: rgba(0, 0, 0, 0.18);
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
 
   padding: 20px;
   border-radius: 12px;
@@ -11,54 +13,64 @@
   color: white;
 
   width: 100%;
-  max-width: 500px;
 }
 
-.edit-litter-form h2 {
+.edit-litter-title {
   margin-bottom: 20px;
 }
 
 .edit-litter-group {
+
   display: flex;
   flex-direction: column;
+
   gap: 6px;
 
   margin-bottom: 16px;
 }
 
 .edit-litter-group label {
+
   font-size: 13px;
+
   text-transform: uppercase;
+
   letter-spacing: 0.5px;
 
-  color: rgba(255,255,255,0.7);
+  color: rgba(255, 255, 255, 0.7);
 }
 
-.edit-litter-form input,
-.edit-litter-form select,
-.edit-litter-form textarea {
+.edit-litter-group input,
+.edit-litter-group select,
+.edit-litter-group textarea {
+
   width: 100%;
+
   padding: 12px;
 
   border-radius: 8px;
   border: none;
 
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
+
   color: white;
 }
 
-.edit-litter-form textarea {
+.edit-litter-group textarea {
+
   min-height: 100px;
+
   resize: vertical;
 }
 
-.edit-litter-form input::placeholder,
-.edit-litter-form textarea::placeholder {
-  color: rgba(255,255,255,0.6);
+.edit-litter-group input::placeholder,
+.edit-litter-group textarea::placeholder {
+
+  color: rgba(255, 255, 255, 0.6);
 }
 
-.edit-litter-form select,
-.edit-litter-form option {
+.edit-litter-group select,
+.edit-litter-group option {
   color: black;
 }
 
@@ -66,11 +78,12 @@
 
   .edit-litter-form {
     padding: 16px;
-    border-radius: 0;
   }
 
-  .edit-litter-form h2 {
+  .edit-litter-title {
+
     font-size: 20px;
+
     margin-bottom: 16px;
   }
 
@@ -82,10 +95,12 @@
     font-size: 12px;
   }
 
-  .edit-litter-form input,
-  .edit-litter-form select,
-  .edit-litter-form textarea {
+  .edit-litter-group input,
+  .edit-litter-group select,
+  .edit-litter-group textarea {
+
     padding: 14px;
+
     font-size: 16px;
   }
 }
@@ -93,17 +108,22 @@
 @media (max-width: 480px) {
 
   .edit-litter-form {
+
     padding: 12px;
+
+    border-radius: 10px;
   }
 
-  .edit-litter-form h2 {
+  .edit-litter-title {
     font-size: 18px;
   }
 
-  .edit-litter-form input,
-  .edit-litter-form select,
-  .edit-litter-form textarea {
+  .edit-litter-group input,
+  .edit-litter-group select,
+  .edit-litter-group textarea {
+
     padding: 12px;
+
     font-size: 15px;
   }
 }

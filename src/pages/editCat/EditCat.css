@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+}
+
+.edit-cat-page {
+    min-height: 100vh;
+
+    padding: 110px 20px 40px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.edit-cat-main-form {
+    width: 100%;
+    max-width: 500px;
+
+    margin-top: 25px;
+
+    background: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+
+    padding: 25px;
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+
+    color: white;
+}
+
+/* TABLET */
+@media (max-width: 768px) {
+
+    .edit-cat-page {
+        padding: 90px 15px 30px 15px;
+    }
+
+    .edit-cat-main-form {
+        margin-top: 20px;
+
+        padding: 16px;
+        border-radius: 0;
+    }
+}
+
+/* MOBITEL */
+@media (max-width: 480px) {
+
+    .edit-cat-page {
+        padding: 85px 12px 25px 12px;
+    }
+
+    .edit-cat-main-form {
+        margin-top: 16px;
+
+        padding: 12px;
+    }
+}

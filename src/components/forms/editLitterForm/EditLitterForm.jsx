@@ -28,10 +28,13 @@ function EditLitterForm({
 
         <div className="edit-litter-form">
 
-            <h2>Uredi leglo</h2>
+            <h2 className="edit-litter-title">
+                Uredi leglo
+            </h2>
 
             <div className="edit-litter-group">
-                <label>Mama</label>
+
+                <label> Mama </label>
 
                 <select
                     name="motherId"
@@ -55,9 +58,11 @@ function EditLitterForm({
                     ))}
 
                 </select>
+
             </div>
 
             <div className="edit-litter-group">
+
                 <label>Tata</label>
 
                 <select
@@ -82,9 +87,11 @@ function EditLitterForm({
                     ))}
 
                 </select>
+
             </div>
 
             <div className="edit-litter-group">
+
                 <label>Datum</label>
 
                 <input
@@ -92,10 +99,13 @@ function EditLitterForm({
                     name="birthDate"
                     value={form.birthDate}
                     onChange={handleChange}
+                    onClick={(e) => e.target.showPicker()}
                 />
+
             </div>
 
             <div className="edit-litter-group">
+
                 <label>Vrijeme</label>
 
                 <input
@@ -104,9 +114,11 @@ function EditLitterForm({
                     value={form.birthTime}
                     onChange={handleChange}
                 />
+
             </div>
 
             <div className="edit-litter-group">
+
                 <label>Porod</label>
 
                 <input
@@ -115,9 +127,11 @@ function EditLitterForm({
                     value={form.deliveryType}
                     onChange={handleChange}
                 />
+
             </div>
 
             <div className="edit-litter-group">
+
                 <label>Ukupno mačića</label>
 
                 <input
@@ -126,9 +140,11 @@ function EditLitterForm({
                     value={form.totalKittens}
                     onChange={handleChange}
                 />
+
             </div>
 
             <div className="edit-litter-group">
+
                 <label>Mužjaci</label>
 
                 <input
@@ -137,9 +153,11 @@ function EditLitterForm({
                     value={form.maleKittens}
                     onChange={handleChange}
                 />
+
             </div>
 
             <div className="edit-litter-group">
+
                 <label>Ženke</label>
 
                 <input
@@ -148,9 +166,11 @@ function EditLitterForm({
                     value={form.femaleKittens}
                     onChange={handleChange}
                 />
+
             </div>
 
             <div className="edit-litter-group">
+
                 <label>Napomene</label>
 
                 <textarea
@@ -158,6 +178,7 @@ function EditLitterForm({
                     value={form.notes}
                     onChange={handleChange}
                 />
+
             </div>
 
         </div>

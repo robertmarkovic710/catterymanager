@@ -46,21 +46,25 @@ function LitterDetails({ litters, cats, deleteLitter }) {
     };
 
     return (
-        <div className="details-page">
+        <div className="litter-details-page">
 
             <BackButton title="Povratak" />
 
-            <div className="main-form">
+            <div className="litter-main-form">
 
-                <h1 className="details-title">Detalji legla</h1>
+                <h1 className="litter-details-title">
+                    Detalji legla
+                </h1>
 
-                <div className="details-section">
+                <div className="litter-details-section">
                     <h3>Roditelji</h3>
+
                     <p>
                         <span>Mama:</span>
                         {" "}
                         {mother?.name || "Nepoznata"}
                     </p>
+
                     <p>
                         <span>Tata:</span>
                         {" "}
@@ -68,18 +72,21 @@ function LitterDetails({ litters, cats, deleteLitter }) {
                     </p>
                 </div>
 
-                <div className="details-section">
+                <div className="litter-details-section">
                     <h3>Okot</h3>
+
                     <p>
                         <span>Datum:</span>
                         {" "}
                         {litter.birthDate}
                     </p>
+
                     <p>
                         <span>Vrijeme:</span>
                         {" "}
                         {litter.birthTime}
                     </p>
+
                     <p>
                         <span>Porod:</span>
                         {" "}
@@ -87,18 +94,21 @@ function LitterDetails({ litters, cats, deleteLitter }) {
                     </p>
                 </div>
 
-                <div className="details-section">
+                <div className="litter-details-section">
                     <h3>Mačići</h3>
+
                     <p>
                         <span>Ukupno:</span>
                         {" "}
                         {litter.totalKittens}
                     </p>
+
                     <p>
                         <span>Mužjaci:</span>
                         {" "}
                         {litter.maleKittens}
                     </p>
+
                     <p>
                         <span>Ženke:</span>
                         {" "}
@@ -106,8 +116,9 @@ function LitterDetails({ litters, cats, deleteLitter }) {
                     </p>
                 </div>
 
-                <div className="details-section">
+                <div className="litter-details-section">
                     <h3>Zdravlje</h3>
+
                     <p>
                         <span>Napomene:</span>
                         {" "}

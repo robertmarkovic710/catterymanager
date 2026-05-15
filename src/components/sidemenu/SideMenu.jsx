@@ -22,7 +22,7 @@ function SideMenu({ isOpen, setIsOpen }) {
         <div className="menu-links">
           <Link to="/home" onClick={closeMenu} className={location.pathname === "/home" ? "active" : ""}>Nadzorna ploča</Link>
           <Link to="/litters" onClick={closeMenu} className={location.pathname === "/litters" ? "active" : ""}>Mališani</Link>
-          <Link to="/cats" onClick={closeMenu} className={location.pathname === "/cats" ? "active" : ""} >Naše mačke</Link>
+          <Link to="/cats" onClick={closeMenu} className={location.pathname === "/cats" ? "active" : ""} >Roditelji</Link>
         </div>
 
         <button className="logout-btn" onClick={handleLogout}>

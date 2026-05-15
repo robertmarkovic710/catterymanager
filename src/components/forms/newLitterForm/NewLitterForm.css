@@ -1,7 +1,24 @@
-.litter-form {
+* {
+  box-sizing: border-box;
+}
+
+.new-litter-page {
+
+  min-height: 100vh;
+
+  padding: 160px 20px 40px 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.new-litter-form {
+
   margin-top: 20px;
 
-  background: rgba(0,0,0,0.25);
+  background: rgba(0, 0, 0, 0.25);
+
   backdrop-filter: blur(10px);
 
   padding: 20px;
@@ -11,109 +28,161 @@
   flex-direction: column;
 
   color: white;
+
   max-width: 500px;
   width: 100%;
 }
 
-.litter-form h2 {
+.new-litter-form h2 {
   margin-bottom: 20px;
 }
 
-.form-group {
+.new-litter-group {
+
   display: flex;
   flex-direction: column;
+
   gap: 6px;
 
   margin-bottom: 16px;
 }
 
-.form-group label {
+.new-litter-group label {
+
   font-size: 13px;
+
   text-transform: uppercase;
+
   letter-spacing: 0.5px;
-  color: rgba(255,255,255,0.7);
+
+  color: rgba(255, 255, 255, 0.7);
 }
 
-.litter-form input,
-.litter-form select,
-.litter-form textarea {
+.new-litter-form input,
+.new-litter-form select,
+.new-litter-form textarea {
+
   width: 100%;
+
   padding: 12px;
 
   border-radius: 8px;
   border: none;
 
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
+
   color: white;
 }
 
-.litter-form textarea {
+.new-litter-form textarea {
+
   min-height: 90px;
+
   resize: none;
 }
 
-.litter-form input::placeholder,
-.litter-form textarea::placeholder {
-  color: rgba(255,255,255,0.6);
+.new-litter-form input::placeholder,
+.new-litter-form textarea::placeholder {
+
+  color: rgba(255, 255, 255, 0.6);
 }
 
-.litter-form select {
+.new-litter-form select {
   color: black;
 }
 
-.litter-form option {
+.new-litter-form option {
   color: black;
+}
+
+.new-litter-submit-btn {
+
+  width: 100%;
+
+  padding: 12px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #274046;
+
+  color: white;
+
+  font-size: 15px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.new-litter-submit-btn:hover {
+  background: #1b2c2f;
 }
 
 @media (max-width: 768px) {
-  .litter-form {
+
+  .new-litter-page {
+    padding: 90px 15px 30px 15px;
+  }
+
+  .new-litter-form {
+
     padding: 16px;
+
     border-radius: 0;
+
     margin-top: 10px;
   }
 
-  .litter-form h2 {
+  .new-litter-form h2 {
+
     font-size: 20px;
+
     margin-bottom: 16px;
   }
 
-  .form-group {
+  .new-litter-group {
     margin-bottom: 14px;
   }
 
-  .form-group label {
+  .new-litter-group label {
     font-size: 12px;
   }
 
-  .litter-form input,
-  .litter-form select,
-  .litter-form textarea {
+  .new-litter-form input,
+  .new-litter-form select,
+  .new-litter-form textarea {
+
     padding: 14px;
+
     font-size: 16px;
   }
 
-  .litter-form textarea {
+  .new-litter-form textarea {
     min-height: 110px;
   }
 }
 
 @media (max-width: 480px) {
-  .litter-form {
+
+  .new-litter-form {
     padding: 12px;
   }
 
-  .litter-form h2 {
+  .new-litter-form h2 {
     font-size: 18px;
   }
 
-  .litter-form input,
-  .litter-form select,
-  .litter-form textarea {
+  .new-litter-form input,
+  .new-litter-form select,
+  .new-litter-form textarea {
+
     padding: 12px;
+
     font-size: 15px;
   }
 
-  .litter-form textarea {
+  .new-litter-form textarea {
     min-height: 100px;
   }
 }

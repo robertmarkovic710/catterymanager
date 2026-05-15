@@ -53,17 +53,17 @@ function CatDetails({ cats, litters, deleteCat }) {
 
     return (
 
-        <div className="details-page">
+        <div className="cat-details-page">
 
             <BackButton title="Povratak" />
 
-            <div className="main-form">
+            <div className="cat-main-form">
 
-                <h1 className="details-title">
+                <h1 className="cat-details-title">
                     Detalji mačke
                 </h1>
 
-                <div className="details-section">
+                <div className="cat-details-section">
 
                     <h3>Osnovni podaci</h3>
 
@@ -95,7 +95,7 @@ function CatDetails({ cats, litters, deleteCat }) {
 
                 <FormActionButtons
                     showEdit={true}
-                    editText="Uredi detalje mačke"
+                    editText="Uredi mačku"
                     onEdit={handleEdit}
                     showDelete={true}
                     onDelete={handleDelete}

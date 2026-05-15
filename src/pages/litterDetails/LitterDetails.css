@@ -1,69 +1,75 @@
-.details-page {
+.litter-details-page {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    align-items: center;
 
-    padding: 110px 70px;
     min-height: 100vh;
 
-    align-items: center;
+    padding: 110px 20px 40px 20px;
 }
 
-.main-form {
+.litter-main-form {
     width: 100%;
     max-width: 700px;
 
-    background: rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(10px);
+    margin-top: 25px;
 
-    padding: 20px;
-    border-radius: 12px;
-}
+    background: rgba(0, 0, 0, 0.15);
 
-.main-form h2 {
-    margin-bottom: 10px;
-}
+    padding: 25px;
+    border-radius: 16px;
 
-/* form */
-.form-group {
     display: flex;
     flex-direction: column;
-    gap: 6px;
-}
 
-.form-group label {
-    font-size: 13px;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.main-form input,
-.main-form select,
-.main-form textarea {
-    padding: 12px;
-    border-radius: 8px;
-    border: none;
-
-    background: rgba(255, 255, 255, 0.1);
     color: white;
 }
 
-.main-form textarea {
-    min-height: 100px;
-    resize: none;
+.litter-details-title {
+    margin-bottom: 20px;
 }
 
-.main-form select {
-    color: black;
+.litter-details-section {
+
+    background: rgba(0, 0, 0, 0.30);
+
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    padding: 20px;
+    border-radius: 12px;
+
+    margin-bottom: 20px;
 }
 
-.main-form option {
-    color: black;
+.litter-details-section h3 {
+    margin-top: 0;
+    margin-bottom: 16px;
+
+    font-size: 18px;
+    font-weight: 600;
 }
 
-/* DELETE BUTTON */
-.delete-btn {
-    margin-top: 10px;
+.litter-details-section p {
+    margin-bottom: 12px;
+
+    color: rgba(255, 255, 255, 0.9);
+
+    line-height: 1.5;
+}
+
+.litter-details-section p:last-child {
+    margin-bottom: 0;
+}
+
+.litter-details-section span {
+    font-weight: 600;
+    color: white;
+}
+
+.vaccination-btn {
+    margin-bottom: 20px;
 
     width: 100%;
     padding: 12px;
@@ -71,28 +77,69 @@
     border: none;
     border-radius: 8px;
 
-    background: #8b0000;
+    background: #274046;
     color: white;
 
     font-size: 15px;
-    font-weight: 500;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
 
     cursor: pointer;
     transition: 0.2s;
 }
 
-.delete-btn:hover {
-    background: #5f0000;
+.vaccination-btn:hover {
+    background: #1b2c2f;
 }
 
-/* responsive */
-@media (max-width: 768px) {
-    .details-page {
-        padding: 90px 15px 30px 15px;
+@media (max-width: 900px) {
+
+    .litter-details-page {
+        padding: 100px 20px 40px 20px;
     }
 
-    .main-form {
+    .litter-main-form {
+        width: 100%;
+        max-width: 100%;
+
+        padding: 20px;
+    }
+
+    .litter-details-section {
         padding: 16px;
-        border-radius: 0;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .litter-details-page {
+        padding: 85px 12px 25px 12px;
+    }
+
+    .litter-main-form {
+        margin-top: 16px;
+
+        padding: 14px;
+        border-radius: 12px;
+    }
+
+    .litter-details-title {
+        font-size: 24px;
+    }
+
+    .litter-details-section {
+        padding: 14px;
+        border-radius: 10px;
+    }
+
+    .litter-details-section h3 {
+        font-size: 16px;
+    }
+
+    .litter-details-section p {
+        font-size: 14px;
     }
 }
