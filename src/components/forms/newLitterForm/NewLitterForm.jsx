@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import BackButton from "../../backButton/BackButton";
 import CatGender from "../../../constants/CatGender";
 
-function NewLitterForm({ addLitter, cats }) {
+function NewLitterForm({ addLitter, cats, litters }) {
 
   const navigate = useNavigate();
 
@@ -55,9 +55,27 @@ function NewLitterForm({ addLitter, cats }) {
       return;
     }
 
+    const highestLetter = litters.reduce(
+      (max, litter) => {
+
+        if (!litter.litterLetter) {
+          return max;
+        }
+
+        const charCode = litter.litterLetter.charCodeAt(0);
+
+        return Math.max(max, charCode);
+
+      },
+      64
+    );
+
+    const nextLetter = String.fromCharCode(highestLetter + 1);
+
     const newLitter = {
 
       id: Date.now(),
+      litterLetter: nextLetter,
 
       motherId: Number(form.motherId),
       fatherId: Number(form.fatherId),
@@ -80,11 +98,15 @@ function NewLitterForm({ addLitter, cats }) {
     navigate("/litters");
   };
 
+  const handleBack = () => {
+    navigate("/litters");
+  }
+
   return (
 
     <div className="new-litter-page">
 
-      <BackButton title="Povratak" />
+      <BackButton title="Povratak" handleReturn={handleBack}/>
 
       <form
         className="new-litter-form"

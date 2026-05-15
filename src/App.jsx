@@ -9,75 +9,65 @@ import AppRouter from "./router/AppRouter";
 import "./App.css";
 
 function App() {
-
   const location = useLocation();
 
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const [cats, setCats] = useState(() => {
-
     const saved = localStorage.getItem("cats");
-
-    return saved
-      ? JSON.parse(saved)
-      : [];
-  });
-
-  const [litters, setLitters] = useState(() => {
-
-    const saved = localStorage.getItem("litters");
-
     return saved ? JSON.parse(saved) : [];
   });
 
   useEffect(() => {
-
     localStorage.setItem("cats", JSON.stringify(cats));
   }, [cats]);
 
+  const [litters, setLitters] = useState(() => {
+    const saved = localStorage.getItem("litters");
+    return saved ? JSON.parse(saved) : [];
+  });
+
   useEffect(() => {
-
-    localStorage.setItem(
-      "litters",
-      JSON.stringify(litters)
-    );
-
+    localStorage.setItem("litters", JSON.stringify(litters));
   }, [litters]);
+
+  const [exhibitions, setExhibitions] = useState(() => {
+    const saved = localStorage.getItem("exhibitions");
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("exhibitions", JSON.stringify(exhibitions));
+  }, [exhibitions]);
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const addCat = (newCat) => {
-
-    setCats(prev => [
-      ...prev,
-      newCat
-    ]);
+    setCats(prev => [...prev, newCat]);
   };
 
   const deleteCat = (id) => {
-    setCats(prev =>
-      prev.filter(cat => cat.id !== id)
-    );
-
+    setCats(prev => prev.filter(cat => cat.id !== id));
     return true;
   };
 
   const addLitter = (newLitter) => {
-
-    setLitters(prev => [
-      ...prev,
-      newLitter
-    ]);
+    setLitters(prev => [...prev, newLitter]);
   };
 
   const deleteLitter = (id) => {
+    setLitters(prev => prev.filter(litter => litter.id !== id));
+    return true;
+  };
 
-    setLitters(prev =>
-      prev.filter(litter => litter.id !== id)
-    );
+  const addExhibition = (newExhibition) => {
+    setExhibitions(prev => [...prev, newExhibition]);
+  };
 
+  const deleteExhibition = (id) => {
+    setExhibitions(prev => prev.filter(exhibition => exhibition.id !== id));
     return true;
   };
 
@@ -95,7 +85,9 @@ function App() {
         location.pathname === "/addCat" ||
         location.pathname === "/addLitter" ||
         location.pathname.startsWith("/cat/") ||
-        location.pathname.startsWith("/litter/")
+        location.pathname.startsWith("/litter/") ||
+        location.pathname === "/addExhibition" ||
+        location.pathname.startsWith("/exhibition/")
       ) && (
 
           <div
@@ -111,10 +103,14 @@ function App() {
         setCats={setCats}
         litters={litters}
         setLitters={setLitters}
+        exhibitions={exhibitions}
+        setExhibitions={setExhibitions}
         addCat={addCat}
         addLitter={addLitter}
+        addExhibition={addExhibition}
         deleteCat={deleteCat}
         deleteLitter={deleteLitter}
+        deleteExhibition={deleteExhibition}
         toggleMenu={toggleMenu}
       />
 

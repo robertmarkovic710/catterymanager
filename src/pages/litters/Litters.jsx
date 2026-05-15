@@ -13,17 +13,13 @@ function Litters({ litters }) {
 
   const sortedLitters = [...litters].sort((a, b) => {
 
-    const dateA = new Date(
-      `${a.birthDate}T${a.birthTime}`
-    );
+    const letterA = a.litterLetter.charCodeAt(0);
 
-    const dateB = new Date(
-      `${b.birthDate}T${b.birthTime}`
-    );
+    const letterB = b.litterLetter.charCodeAt(0);
 
     return sortOrder === "desc"
-      ? dateB - dateA
-      : dateA - dateB;
+      ? letterB - letterA
+      : letterA - letterB;
   });
 
   return (
@@ -60,9 +56,9 @@ function Litters({ litters }) {
 
         <div className="litters-list">
 
-          {sortedLitters.map((litter, index) => {
+          {sortedLitters.map((litter) => {
 
-            const litterLetter = String.fromCharCode(65 + index);
+            const litterLetter = litter.litterLetter;
 
             return (
 

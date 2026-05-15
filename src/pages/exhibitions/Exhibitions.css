@@ -1,0 +1,123 @@
+.exhibitions-page {
+    min-height: 100vh;
+    padding: 100px 20px 40px;
+    color: white;
+    box-sizing: border-box;
+}
+
+.exhibitions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.exhibitions-header h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.add-exhibition-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+    white-space: nowrap;
+}
+
+.add-exhibition-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.exhibitions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.exhibition-card {
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.2s;
+    word-break: break-word;
+    cursor: pointer;
+}
+
+.exhibition-card:hover {
+    transform: translateY(-2px);
+}
+
+.exhibition-card h2 {
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
+
+.empty-state {
+    text-align: center;
+    opacity: 0.7;
+    margin-top: 50px;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .exhibitions-page {
+        padding: 90px 15px 30px;
+    }
+
+    .exhibitions-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .exhibitions-header h1 {
+        text-align: center;
+        font-size: 1.8rem;
+    }
+
+    .add-exhibition-btn {
+        width: 100%;
+    }
+
+    .exhibition-card {
+        padding: 18px;
+    }
+
+    .exhibition-card h2 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .exhibitions-page {
+        padding: 85px 12px 25px;
+    }
+
+    .exhibitions-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .add-exhibition-btn {
+        padding: 12px;
+    }
+
+    .exhibition-card {
+        padding: 16px;
+    }
+
+    .exhibition-card h2 {
+        font-size: 1.1rem;
+    }
+
+    .empty-state {
+        font-size: 1rem;
+    }
+}

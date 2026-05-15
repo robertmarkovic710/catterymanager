@@ -1,0 +1,146 @@
+.new-exhibition-page {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 100px 20px 40px;
+
+    box-sizing: border-box;
+}
+
+.new-exhibition-form {
+
+    width: 100%;
+
+    max-width: 500px;
+
+    background: rgba(0, 0, 0, 0.25);
+
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+    color: white;
+}
+
+.new-exhibition-form h2 {
+    margin-bottom: 20px;
+    color: white;
+}
+
+.new-exhibition-form input {
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    border-radius: 12px;
+
+    padding: 14px;
+
+    color: white;
+
+    font-size: 1rem;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+.new-exhibition-form input:focus {
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.new-exhibition-form input::placeholder {
+
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.new-exhibition-form button {
+
+    background: #274046;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    color: white;
+
+    padding: 14px;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font-size: 1rem;
+
+    transition: 0.2s;
+}
+
+.new-exhibition-form button:hover {
+
+    background: #1b2c2f;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .new-exhibition-page {
+
+        padding: 90px 15px 30px;
+    }
+
+    .new-exhibition-form {
+
+        padding: 24px;
+    }
+
+    .new-exhibition-form h1 {
+
+        font-size: 1.8rem;
+    }
+}
+
+
+/* SMALL MOBILE */
+
+@media (max-width: 480px) {
+
+    .new-exhibition-form {
+
+        padding: 20px;
+
+        border-radius: 16px;
+    }
+
+    .new-exhibition-form h1 {
+
+        font-size: 1.5rem;
+    }
+
+    .new-exhibition-form input {
+
+        padding: 12px;
+    }
+
+    .new-exhibition-form button {
+
+        padding: 12px;
+    }
+}

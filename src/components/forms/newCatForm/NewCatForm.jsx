@@ -45,11 +45,15 @@ function CatForm({ addCat }) {
     navigate("/cats");
   };
 
+  const handleBack = () => {
+    navigate("/cats");
+  }
+
   return (
 
     <div className="new-cat-page">
 
-      <BackButton title="Povratak" />
+      <BackButton title="Povratak" handleReturn={handleBack} />
 
       <form
         className="new-cat-card"
