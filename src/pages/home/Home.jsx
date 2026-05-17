@@ -16,34 +16,20 @@ function Home({ toggleMenu }) {
 
                 <div className="dashboard-right">
                     <div className="dashboard-cards">
-                        <div className="card" onClick={() => navigate("/cats")}>
-                            <h3>Uzgojni parovi</h3>
-                            <p>Pregled svih mačaka</p>
-                        </div>
-
-                        <div className="card" onClick={() => navigate("/litters")}>
-                            <h3>Legla</h3>
-                            <p>Pregled svih legla</p>
-                        </div>
-
-                        <div className="card" onClick={() => navigate("/addCat")}>
-                            <h3>Dodaj mačku</h3>
-                            <p>Unesi novu uzgojnu mačku</p>
-                        </div>
 
                         <div className="card" onClick={() => navigate("/addLitter")}>
                             <h3>Dodaj leglo</h3>
-                            <p>Unesi novleglo</p>
+                            <p>Unesi novo leglo</p>
                         </div>
 
-                        <div className="card" onClick={() => navigate("/*")}>
-                            <h3>Veterinarske stanice u blizini</h3>
-                            <p>Uskoro!</p>
+                        <div className="card" onClick={() => navigate("/addCat")}>
+                            <h3>Dodaj uzgojnu mačku</h3>
+                            <p>Unesi novu uzgojnu mačku</p>
                         </div>
 
-                        <div className="card" onClick={() => navigate("/*")}>
-                            <h3>Troškovnik</h3>
-                            <p>Uskoro!</p>
+                        <div className="card" onClick={() => navigate("/addExhibition")}>
+                            <h3>Dodaj novu izložbu</h3>
+                            <p>Unesi novu izložbu</p>
                         </div>
 
                     </div>

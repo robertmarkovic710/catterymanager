@@ -1,26 +1,46 @@
 import "./CatDetails.css";
+
 import { useParams, useNavigate } from "react-router-dom";
+
 import BackArrowButton from "../../components/backArrowButton/BackArrowButton";
 import FormActionButtons from "../../components/formActionButtons/FormActionButtons";
 
-function CatDetails({ cats, litters, deleteCat }) {
+function CatDetails({
+    cats,
+    litters,
+    deleteCat,
+    exhibitions = []
+}) {
 
     const { id } = useParams();
 
     const navigate = useNavigate();
 
     const cat = cats.find(
-        c => c.id === Number(id)
+        cat => cat.id === Number(id)
     );
 
     if (!cat) {
-        return <p>Mačka nije pronađena.</p>;
+
+        return (
+            <div className="cat-details-page">
+                <p className="cat-details-not-found">
+                    Mačka nije pronađena.
+                </p>
+            </div>
+        );
     }
+
+    const catExhibitions = exhibitions.filter(exhibition =>
+        (exhibition.registeredCatIds || []).includes(cat.id)
+    );
 
     const handleDelete = () => {
 
-        const isParent = litters.some (
-            litter => litter.motherId === cat.id || litter.fatherId === cat.id
+        const isParent = litters.some(
+            litter =>
+                litter.motherId === cat.id ||
+                litter.fatherId === cat.id
         );
 
         if (isParent) {
@@ -37,7 +57,7 @@ function CatDetails({ cats, litters, deleteCat }) {
         );
 
         if (!confirmed) return;
- 
+
         const deleted = deleteCat(cat.id);
 
         if (deleted) {
@@ -50,16 +70,19 @@ function CatDetails({ cats, litters, deleteCat }) {
     };
 
     const handleBack = () => {
-        navigate('/cats');
-    }
+        navigate("/cats");
+    };
 
     return (
 
         <div className="cat-details-page">
 
-            <BackArrowButton title="Povratak" handleReturn={handleBack} />
+            <BackArrowButton
+                title="Povratak"
+                handleReturn={handleBack}
+            />
 
-            <div className="cat-main-form">
+            <div className="cat-details-card">
 
                 <h1 className="cat-details-title">
                     Detalji mačke
@@ -67,31 +90,86 @@ function CatDetails({ cats, litters, deleteCat }) {
 
                 <div className="cat-details-section">
 
-                    <h3>Osnovni podaci</h3>
+                    <h3 className="cat-details-section-title">
+                        Osnovni podaci
+                    </h3>
 
-                    <p>
-                        <span>Ime:</span>
+                    <p className="cat-details-row">
+                        <span className="cat-details-label">
+                            Ime:
+                        </span>
                         {" "}
                         {cat.name}
                     </p>
 
-                    <p>
-                        <span>Pasmina:</span>
+                    <p className="cat-details-row">
+                        <span className="cat-details-label">
+                            Pasmina:
+                        </span>
                         {" "}
                         {cat.breed}
                     </p>
 
-                    <p>
-                        <span>Dob:</span>
+                    <p className="cat-details-row">
+                        <span className="cat-details-label">
+                            Dob:
+                        </span>
                         {" "}
                         {cat.age}
                     </p>
 
-                    <p>
-                        <span>Spol:</span>
+                    <p className="cat-details-row">
+                        <span className="cat-details-label">
+                            Spol:
+                        </span>
                         {" "}
                         {cat.gender}
                     </p>
+
+                </div>
+
+                <div className="cat-details-section">
+
+                    <h3 className="cat-details-section-title">
+                        Izložbe
+                    </h3>
+
+                    {catExhibitions.length === 0 ? (
+
+                        <p className="cat-details-row">
+                            Mačka nije prijavljena ni na jednu izložbu.
+                        </p>
+
+                    ) : (
+
+                        <div className="cat-details-exhibitions-list">
+
+                            {catExhibitions.map(exhibition => (
+
+                                <div
+                                    key={exhibition.id}
+                                    className="cat-details-exhibition-item"
+                                >
+
+                                    <p className="cat-details-row">
+                                        <span className="cat-details-label">
+                                            {exhibition.name}
+                                        </span>
+                                    </p>
+
+                                    <p className="cat-details-row">
+                                        {exhibition.location}
+                                        {" "}
+                                        - 
+                                        {" "}
+                                        {exhibition.date}
+                                    </p>
+
+                                </div>
+                            ))}
+
+                        </div>
+                    )}
 
                 </div>
 
@@ -99,10 +177,10 @@ function CatDetails({ cats, litters, deleteCat }) {
                     showEdit={true}
                     editText="Uredi mačku"
                     onEdit={handleEdit}
-                    
+
                     showDelete={true}
-                    onDelete={handleDelete}
                     deleteText="Obriši mačku"
+                    onDelete={handleDelete}
                 />
 
             </div>

@@ -2,57 +2,99 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
   min-height: 100vh;
-  padding: 110px 20px 40px 20px; 
+
+  padding: 110px 20px 40px 20px;
 }
 
-.cat-main-form {
+.cat-details-card {
   width: 100%;
   max-width: 700px;
+
   margin-top: 25px;
+
   background: rgba(0, 0, 0, 0.15);
+
   padding: 25px;
   border-radius: 16px;
+
   display: flex;
   flex-direction: column;
+
   color: white;
 }
 
 .cat-details-title {
   margin-bottom: 20px;
+
   color: white;
 }
 
 .cat-details-section {
+  width: 100%;
+
   background: rgba(0, 0, 0, 0.30);
+
   backdrop-filter: blur(10px);
+
   border: 1px solid rgba(255, 255, 255, 0.08);
+
   padding: 20px;
   border-radius: 12px;
+
   margin-bottom: 20px;
 }
 
-.cat-details-section h3 {
+.cat-details-section-title {
   margin-top: 0;
   margin-bottom: 16px;
+
   font-size: 18px;
   font-weight: 600;
+
   color: white;
 }
 
-.cat-details-section p {
+.cat-details-row {
   margin-bottom: 12px;
+
   color: rgba(255, 255, 255, 0.9);
+
   line-height: 1.5;
 }
 
-.cat-details-section p:last-child {
+.cat-details-row:last-child {
   margin-bottom: 0;
 }
 
-.cat-details-section span {
+.cat-details-label {
   font-weight: 600;
+
   color: white;
+}
+
+.cat-details-exhibitions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cat-details-exhibition-item {
+  padding: 14px;
+
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cat-details-not-found {
+  margin-top: 120px;
+
+  color: white;
+  font-size: 18px;
 }
 
 @media (max-width: 900px) {
@@ -61,9 +103,10 @@
     padding: 100px 20px 40px 20px;
   }
 
-  .cat-main-form {
+  .cat-details-card {
     width: 100%;
     max-width: 100%;
+
     padding: 20px;
   }
 
@@ -78,8 +121,9 @@
     padding: 85px 12px 25px 12px;
   }
 
-  .cat-main-form {
+  .cat-details-card {
     margin-top: 16px;
+
     padding: 14px;
     border-radius: 12px;
   }
@@ -93,11 +137,15 @@
     border-radius: 10px;
   }
 
-  .cat-details-section h3 {
+  .cat-details-section-title {
     font-size: 16px;
   }
 
-  .cat-details-section p {
+  .cat-details-row {
     font-size: 14px;
+  }
+
+  .cat-details-exhibition-item {
+    padding: 12px;
   }
 }

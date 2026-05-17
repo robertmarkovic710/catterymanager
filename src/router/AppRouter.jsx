@@ -37,7 +37,7 @@ function AppRouter({ cats, setCats, litters, setLitters, addCat, addLitter, dele
     {
       path: "/cat/:id",
       element: (
-        <CatDetails cats={cats} litters={litters} deleteCat={deleteCat} />
+        <CatDetails cats={cats} litters={litters} deleteCat={deleteCat} exhibitions={exhibitions}/>
       ),
     },
     {
@@ -90,7 +90,7 @@ function AppRouter({ cats, setCats, litters, setLitters, addCat, addLitter, dele
     {
       path: "/exhibition/:id",
       element: (
-        <ExhibitionDetails exhibitions={exhibitions} deleteExhibition={deleteExhibition} />
+        <ExhibitionDetails exhibitions={exhibitions} setExhibitions={setExhibitions} deleteExhibition={deleteExhibition} cats={cats} />
       ),
     },
     {

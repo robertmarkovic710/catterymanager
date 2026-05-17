@@ -18,14 +18,11 @@ function NewExhibitionForm({ addExhibition }) {
         e.preventDefault();
 
         const newExhibition = {
-
             id: Date.now(),
-
             name,
-
             location,
-
-            date
+            date,
+            registeredCatIds: []
         };
 
         addExhibition(newExhibition);

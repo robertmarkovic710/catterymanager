@@ -1,63 +1,179 @@
-* {
-    box-sizing: border-box;
-}
-
 .exhibition-details-page {
     display: flex;
     flex-direction: column;
     align-items: center;
+
     min-height: 100vh;
+
     padding: 110px 20px 40px 20px;
 }
 
-.exhibition-main-form {
+.exhibition-details-card {
     width: 100%;
-    max-width: 600px;
+    max-width: 700px;
+
     margin-top: 25px;
+
     background: rgba(0, 0, 0, 0.15);
-    backdrop-filter: blur(10px);
+
     padding: 25px;
     border-radius: 16px;
+
     display: flex;
     flex-direction: column;
+
     color: white;
 }
 
 .exhibition-details-title {
     margin-bottom: 20px;
+
     color: white;
 }
 
 .exhibition-details-section {
+    width: 100%;
+
     background: rgba(0, 0, 0, 0.30);
+
     backdrop-filter: blur(10px);
+
     border: 1px solid rgba(255, 255, 255, 0.08);
+
     padding: 20px;
     border-radius: 12px;
+
     margin-bottom: 20px;
 }
 
-.exhibition-details-section h3 {
+.exhibition-details-section-title {
     margin-top: 0;
     margin-bottom: 16px;
+
     font-size: 18px;
     font-weight: 600;
+
     color: white;
 }
 
-.exhibition-details-section p {
+.exhibition-details-row {
     margin-bottom: 12px;
+
     color: rgba(255, 255, 255, 0.9);
+
     line-height: 1.5;
 }
 
-.exhibition-details-section p:last-child {
+.exhibition-details-row:last-child {
     margin-bottom: 0;
 }
 
-.exhibition-details-section span {
+.exhibition-details-label {
     font-weight: 600;
+
     color: white;
+}
+
+.exhibition-details-register-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    margin-bottom: 16px;
+}
+
+.exhibition-details-register-label {
+    font-size: 13px;
+
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.exhibition-details-register-select {
+    width: 100%;
+
+    padding: 12px;
+
+    border-radius: 8px;
+    border: none;
+
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+
+    outline: none;
+}
+
+.exhibition-details-register-select option {
+    color: black;
+}
+
+.exhibition-details-save-registration-button {
+    width: fit-content;
+
+    padding: 10px 18px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: rgba(255, 255, 255, 0.18);
+    color: white;
+
+    cursor: pointer;
+}
+
+.exhibition-details-save-registration-button:hover {
+    background: rgba(255, 255, 255, 0.28);
+}
+
+.exhibition-details-registered-cats-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.exhibition-details-registered-cat-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    padding: 12px 14px;
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.exhibition-details-registered-cat-name {
+    color: white;
+    font-weight: 600;
+}
+
+.exhibition-details-remove-cat-button {
+    padding: 8px 14px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: rgba(255, 80, 80, 0.36);
+    color: white;
+
+    cursor: pointer;
+}
+
+.exhibition-details-remove-cat-button:hover {
+    background: rgba(255, 80, 80, 0.719);
+}
+
+.exhibition-details-not-found {
+    margin-top: 120px;
+
+    color: white;
+    font-size: 18px;
 }
 
 @media (max-width: 900px) {
@@ -66,9 +182,10 @@
         padding: 100px 20px 40px 20px;
     }
 
-    .exhibition-main-form {
+    .exhibition-details-card {
         width: 100%;
         max-width: 100%;
+
         padding: 20px;
     }
 
@@ -83,8 +200,9 @@
         padding: 85px 12px 25px 12px;
     }
 
-    .exhibition-main-form {
+    .exhibition-details-card {
         margin-top: 16px;
+
         padding: 14px;
         border-radius: 12px;
     }
@@ -95,15 +213,23 @@
 
     .exhibition-details-section {
         padding: 14px;
-
         border-radius: 10px;
     }
 
-    .exhibition-details-section h3 {
+    .exhibition-details-section-title {
         font-size: 16px;
     }
 
-    .exhibition-details-section p {
+    .exhibition-details-row {
         font-size: 14px;
+    }
+
+    .exhibition-details-registered-cat-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .exhibition-details-remove-cat-button {
+        width: 100%;
     }
 }

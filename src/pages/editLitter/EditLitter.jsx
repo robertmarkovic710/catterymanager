@@ -149,6 +149,7 @@ function EditLitter({ litters, setLitters, cats }) {
                             type="time"
                             name="birthTime"
                             value={form.birthTime}
+                            onClick={(e) => e.target.showPicker()}
                             onChange={handleChange}
                         />
 
