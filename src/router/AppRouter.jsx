@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import Login from "../pages/login/Login";
+import Register from "../pages/register/Register";
 import Home from "../pages/home/Home";
 import Cats from "../pages/cats/Cats";
 import NewCatForm from "../components/forms/newCatForm/NewCatForm";
@@ -21,7 +22,7 @@ function ProtectedRoute({ user, children }) {
 
 function AppRouter({ cats, setCats, litters, setLitters, addCat, addLitter, deleteCat, deleteLitter, exhibitions, setExhibitions, addExhibition, deleteExhibition, toggleMenu }) {
 
-  const user = localStorage.getItem("user");
+  const token = localStorage.getItem("token");
 
   const routes = [
     {
@@ -37,7 +38,7 @@ function AppRouter({ cats, setCats, litters, setLitters, addCat, addLitter, dele
     {
       path: "/cat/:id",
       element: (
-        <CatDetails cats={cats} litters={litters} deleteCat={deleteCat} exhibitions={exhibitions}/>
+        <CatDetails cats={cats} litters={litters} deleteCat={deleteCat} exhibitions={exhibitions} />
       ),
     },
     {
@@ -78,7 +79,7 @@ function AppRouter({ cats, setCats, litters, setLitters, addCat, addLitter, dele
     {
       path: "/exhibitions",
       element: (
-        <Exhibitions exhibitions={exhibitions}/>
+        <Exhibitions exhibitions={exhibitions} />
       ),
     },
     {
@@ -107,7 +108,14 @@ function AppRouter({ cats, setCats, litters, setLitters, addCat, addLitter, dele
       <Route
         path="/login"
         element={
-          user ? <Navigate to="/home" /> : <Login toggleMenu={toggleMenu} />
+          token ? <Navigate to="/home" /> : <Login toggleMenu={toggleMenu} />
+        }
+      />
+
+      <Route
+        path="/register"
+        element={
+          token ? <Navigate to="/home" /> : <Register toggleMenu={toggleMenu} />
         }
       />
 
@@ -116,7 +124,7 @@ function AppRouter({ cats, setCats, litters, setLitters, addCat, addLitter, dele
           key={route.path}
           path={route.path}
           element={
-            <ProtectedRoute user={user}>
+            <ProtectedRoute user={token}>
               {route.element}
             </ProtectedRoute>
           }
@@ -126,7 +134,7 @@ function AppRouter({ cats, setCats, litters, setLitters, addCat, addLitter, dele
       <Route
         path="*"
         element={
-          <Navigate to={user ? "/home" : "/login"} />
+          <Navigate to={token ? "/home" : "/login"} />
         }
       />
 

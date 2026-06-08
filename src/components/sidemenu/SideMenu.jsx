@@ -3,13 +3,17 @@ import { useLocation } from "react-router-dom";
 import "./SideMenu.css";
 
 function SideMenu({ isOpen, setIsOpen }) {
+
   const navigate = useNavigate();
+
   const closeMenu = () => setIsOpen(false);
+
   const handleLogout = () => {
     localStorage.removeItem("user");
+    localStorage.removeItem("token");
     closeMenu();
     navigate("/login");
-  }
+  };
 
   return (
     <>

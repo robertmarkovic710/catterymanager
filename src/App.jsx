@@ -1,12 +1,12 @@
+import "./App.css"; 
+
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-
 import { GrAppsRounded } from "react-icons/gr";
 
-import SideMenu from "./components/sidemenu/SideMenu";
+import SideMenu from "./components/sidemenu/SideMenu.jsx";
 import AppRouter from "./router/AppRouter";
 
-import "./App.css";
 
 function App() {
   const location = useLocation();
@@ -82,6 +82,7 @@ function App() {
 
       {!(
         location.pathname === "/login" ||
+        location.pathname === "/register" ||
         location.pathname === "/addCat" ||
         location.pathname === "/addLitter" ||
         location.pathname.startsWith("/cat/") ||
